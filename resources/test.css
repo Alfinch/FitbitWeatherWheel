@@ -1,0 +1,209 @@
+#background {
+  x: 0;
+  y: 0;
+  width: 336;
+  height: 336;
+  gradient-type: radial;
+  gradient-x1: 168;
+  gradient-y1: 168;
+  gradient-x2: 336;
+  gradient-y2: 336;
+  gradient-color1: #003399;
+  gradient-color2: black;
+}
+
+#graphGradient {
+  x: 0;
+  y: 0;
+  width: 336;
+  height: 336;
+  gradient-type: radial;
+  gradient-x1: 168;
+  gradient-y1: 168;
+  gradient-x2: 336;
+  gradient-y2: 336;
+  gradient-color1: yellow;
+  gradient-color2: red;
+}
+
+#mainRingA {
+  x: 3;
+  y: 3;
+  width: 330;
+  height: 330;
+  fill: #003399;
+  arc-width: 30;
+  start-angle: 0;
+  sweep-angle: 360;
+}
+
+#mainRingB {
+  x: 33;
+  y: 33;
+  width: 270;
+  height: 270;
+  fill: #003399;
+  arc-width: 30;
+  start-angle: 0;
+  sweep-angle: 360;
+}
+
+#nightArcA {
+  x: 3;
+  y: 3;
+  width: 330;
+  height: 330;
+  fill: #002266;
+  arc-width: 30;
+  start-angle: 0;
+  sweep-angle: 0;
+}
+
+#nightArcB {
+  x: 33;
+  y: 33;
+  width: 270;
+  height: 270;
+  fill: #002266;
+  arc-width: 30;
+  start-angle: 0;
+  sweep-angle: 0;
+}
+
+#workMorningArcA {
+  x: 3;
+  y: 3;
+  width: 330;
+  height: 330;
+  fill: #0044CC;
+  arc-width: 30;
+  start-angle: -60;
+  sweep-angle: 60;
+}
+
+#workMorningArcB {
+  x: 33;
+  y: 33;
+  width: 270;
+  height: 270;
+  fill: #0044CC;
+  arc-width: 30;
+  start-angle: -60;
+  sweep-angle: 60;
+}
+
+#workAfternoonArcA {
+  x: 3;
+  y: 3;
+  width: 330;
+  height: 330;
+  fill: #0044CC;
+  arc-width: 30;
+  start-angle: 15;
+  sweep-angle: 45;
+}
+
+#workAfternoonArcB {
+  x: 33;
+  y: 33;
+  width: 270;
+  height: 270;
+  fill: #0044CC;
+  arc-width: 30;
+  start-angle: 15;
+  sweep-angle: 45;
+}
+
+#temp {
+  fill: white;
+  text-length: 8;
+  font-size: 30;
+  font-family: System-Regular;
+  text-anchor: middle;
+  x: 168;
+  y: 125;
+}
+
+#time {
+  fill: white;
+  text-length: 8;
+  font-size: 60;
+  font-family: System-Bold;
+  text-anchor: middle;
+  x: 168;
+  y: 190;
+}
+
+#weather {
+  fill: white;
+  text-length: 12;
+  font-size: 30;
+  font-family: System-Regular;
+  text-anchor: middle;
+  x: 168;
+  y: 235;
+}
+
+#hiTempTransform {
+  transform: rotate(-45);
+}
+
+#hiTemp {
+  fill: #ff0000;
+  text-length: 12;
+  font-size: 26;
+  font-family: System-Regular;
+  text-anchor: middle;
+  x: 0;
+  y: 68;
+}
+
+#loTempTransform {
+  transform: rotate(45);
+}
+
+#loTemp {
+  fill: #ff0000;
+  text-length: 12;
+  font-size: 26;
+  font-family: System-Regular;
+  text-anchor: middle;
+  x: 236;
+  y: -170;
+}
+
+#rainBarsA > arc {
+  fill: cyan;
+}
+
+#rainBarsB > arc {
+  fill: cyan;
+}
+
+#graphHourMarkers > g > line {
+  x1: 0;
+  y1: 155;
+  x2: 0;
+  y2: 165;
+  fill: white;
+  opacity: .5;
+  stroke-width: 1;
+  stroke-linecap: butt;
+}
+
+#dayHand {
+  fill: white;
+  stroke-width: 2;
+  stroke-linecap: butt;
+}
+
+#dataHand {
+  fill: #00ff00;
+  stroke-width: 2;
+  stroke-linecap: butt;
+}
+
+#graphLineTransform line {
+  stroke-width: 2;
+  stroke-linecap: butt;
+}
