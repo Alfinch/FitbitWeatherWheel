@@ -1,0 +1,25 @@
+{
+  "devDependencies": {
+    "@fitbit/sdk": "~5.0.0"
+  },
+  "fitbit": {
+    "appUUID": "fff016e5-9b0c-41f3-9139-2e9252a6a59a",
+    "appType": "clockface",
+    "appDisplayName": "Weather Wheel",
+    "iconFile": "resources/icon.png",
+    "wipeColor": "",
+    "requestedPermissions": [
+      "access_internet",
+      "access_location"
+    ],
+    "buildTargets": [
+      "vulcan"
+    ],
+    "i18n": {
+      "en-US": {
+        "name": "Weather Wheel"
+      }
+    },
+    "defaultLanguage": "en-US"
+  }
+}
