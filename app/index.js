@@ -11,7 +11,6 @@ import setTempDisplay from './watchface/tempDisplay';
 import setWorkArc from './watchface/workArc';
 
 const weatherText = document.getElementById('weather');
-const dataHandTransform = document.getElementById('dataHandTransform');
 
 var weatherCache;
 
@@ -37,12 +36,14 @@ let lastHour = new Date().setMinutes(0, 0, 0);
 let msUntilNextHour = (60 * 60 * 1000) - (now - lastHour);
 
 setTimeout(() => {
+
+  console.log(`Initial timeout has expired - app should now be synchronised with the hour`);
+
   requestWeatherData();
   setInterval(requestWeatherData, 60 * 60 * 1000);
 }, msUntilNextHour);
 
 requestWeatherData();
-
 requestSettings();
 
 asap.onmessage = message => {
@@ -89,8 +90,6 @@ function setWeatherData(weather) {
   console.log(`Applying weather data`);
 
   let startTime = util.unixTimeToDate(weather.startTime);
-  
-  dataHandTransform.groupTransform.rotate.angle = util.dateToFaceAngle(startTime);
   
   weatherText.text = weather.weather;
   

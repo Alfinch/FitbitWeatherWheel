@@ -69,7 +69,7 @@ function onWeatherData(data) {
     hourlyTemp: hourly.map(h => h.temp)
   };
 
-  console.log(`Sending weather data to app`);
+  console.log(`Sending weather data to app (length: ${JSON.stringify(weather).length})`);
   asap.send({ type: 'weather', weather: weather });
 }
 
@@ -94,5 +94,6 @@ function onSettingsChanged() {
     }
   }
 
+  console.log(`Sending settings data to app`);
   asap.send({ type: 'settings', settings: settings });
 }

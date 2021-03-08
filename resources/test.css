@@ -175,12 +175,6 @@
   stroke-linecap: butt;
 }
 
-#dataHand {
-  fill: #00ff00;
-  stroke-width: 2;
-  stroke-linecap: butt;
-}
-
 #graphLineTransform line {
   stroke-width: 2;
   stroke-linecap: butt;

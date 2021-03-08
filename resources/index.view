@@ -106,8 +106,4 @@
     <line id="dayHand" x1="0" y1="105" x2="0" y2="165" />
   </g>
   
-  <g id="dataHandTransform" transform="translate(168, 168)">
-    <line id="dataHand" x1="0" y1="105" x2="0" y2="165" />
-  </g>
-  
 </svg>
