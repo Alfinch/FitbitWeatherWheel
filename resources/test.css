@@ -70,48 +70,26 @@
   sweep-angle: 0;
 }
 
-#workMorningArcA {
+#workArcA {
   x: 3;
   y: 3;
   width: 330;
   height: 330;
   fill: #0044CC;
   arc-width: 30;
-  start-angle: -60;
-  sweep-angle: 60;
+  start-angle: 0;
+  sweep-angle: 0;
 }
 
-#workMorningArcB {
+#workArcB {
   x: 33;
   y: 33;
   width: 270;
   height: 270;
   fill: #0044CC;
   arc-width: 30;
-  start-angle: -60;
-  sweep-angle: 60;
-}
-
-#workAfternoonArcA {
-  x: 3;
-  y: 3;
-  width: 330;
-  height: 330;
-  fill: #0044CC;
-  arc-width: 30;
-  start-angle: 15;
-  sweep-angle: 45;
-}
-
-#workAfternoonArcB {
-  x: 33;
-  y: 33;
-  width: 270;
-  height: 270;
-  fill: #0044CC;
-  arc-width: 30;
-  start-angle: 15;
-  sweep-angle: 45;
+  start-angle: 0;
+  sweep-angle: 0;
 }
 
 #temp {

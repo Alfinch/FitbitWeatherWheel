@@ -22,5 +22,11 @@
       }
     },
     "defaultLanguage": "en-US"
+  },
+  "scripts": {
+    "build": "fitbit-build"
+  },
+  "dependencies": {
+    "fitbit-asap": "^1.2.3"
   }
 }

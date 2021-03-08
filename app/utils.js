@@ -1,7 +1,3 @@
-export function zeroPad(i) {
-  return i < 10 ? "0" + i : i;
-}
-
 export function unixTimeToFaceAngle(t) {
   return dateToFaceAngle(unixTimeToDate(t));
 }
@@ -11,11 +7,23 @@ export function unixTimeToDate(t) {
 }
 
 export function dateToFaceAngle(d) {
-  let minutes = d.getHours() * 60 + d.getMinutes();
-  let angle = (minutes / 1440) * 360;
-  return angle % 360;
+  return hoursAndMinutesToFaceAngle(d.getHours(), d.getMinutes());
+}
+
+export function hoursAndMinutesToFaceAngle(h, m) {
+  return (((h * 60) + m) / 4) % 360;
 }
 
 export function isNumber(value) {
-   return typeof value === 'number' && isFinite(value);
+  return typeof value === 'number' && isFinite(value);
+}
+
+export function faceAngleDegreesToFaceAngleRadians(degrees) {
+  return (((degrees + 90) / 360) % 1) * 2 * Math.PI;
+}
+
+export function buildArray(length, forEachIndex) {
+  return Array
+    .apply(null, { length: length })
+    .map((_, i) => forEachIndex(i));
 }

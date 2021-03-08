@@ -8,13 +8,8 @@
   <arc id="nightArcA" />
   <arc id="nightArcB" />
   
-<!--
-  <arc id="workMorningArcA" />
-  <arc id="workMorningArcB" />
-  
-  <arc id="workAfternoonArcA" />
-  <arc id="workAfternoonArcB" />
--->
+  <arc id="workArcA" />
+  <arc id="workArcB" />
   
   <g id="hiTempTransform">
     <text id="hiTemp" />
@@ -76,22 +71,30 @@
   <mask id="graphLineMask">
     <g id="graphLineTransform" transform="translate(168, 168)">
       <!-- 192 segments - 8 per hour -->
-      <line /><line /><line /><line /><line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line /><line /><line /><line /><line />
+      <line /><line /><line /><line /><line /><line /><line /><line />
+      <line /><line /><line /><line /><line /><line /><line /><line />
+      <line /><line /><line /><line /><line /><line /><line /><line />
+      <line /><line /><line /><line /><line /><line /><line /><line />
+      <line /><line /><line /><line /><line /><line /><line /><line />
+      <line /><line /><line /><line /><line /><line /><line /><line />
+      <line /><line /><line /><line /><line /><line /><line /><line />
+      <line /><line /><line /><line /><line /><line /><line /><line />
+      <line /><line /><line /><line /><line /><line /><line /><line />
+      <line /><line /><line /><line /><line /><line /><line /><line />
+      <line /><line /><line /><line /><line /><line /><line /><line />
+      <line /><line /><line /><line /><line /><line /><line /><line />
+      <line /><line /><line /><line /><line /><line /><line /><line />
+      <line /><line /><line /><line /><line /><line /><line /><line />
+      <line /><line /><line /><line /><line /><line /><line /><line />
+      <line /><line /><line /><line /><line /><line /><line /><line />
+      <line /><line /><line /><line /><line /><line /><line /><line />
+      <line /><line /><line /><line /><line /><line /><line /><line />
+      <line /><line /><line /><line /><line /><line /><line /><line />
+      <line /><line /><line /><line /><line /><line /><line /><line />
+      <line /><line /><line /><line /><line /><line /><line /><line />
+      <line /><line /><line /><line /><line /><line /><line /><line />
+      <line /><line /><line /><line /><line /><line /><line /><line />
+      <line /><line /><line /><line /><line /><line /><line /><line />
     </g>
   </mask>
     
