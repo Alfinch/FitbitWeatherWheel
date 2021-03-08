@@ -20,7 +20,7 @@ function setTempGraph(startTime, hourlyTemps, minTemp, maxTemp, segments) {
 
     const xValues = util.buildArray(NUM_NODES, i => i / 2);
   
-    const spline = new Spline(xValues, yValues)
+    const spline = new Spline(xValues, yValues);
     
     let polarCoordinates = util.buildArray(NUM_POINTS, i =>
       new Polar(

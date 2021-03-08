@@ -27,7 +27,7 @@ clock.ontick = (evt) => {
   setDayHand(hours, minutes);
 
   if (weatherCache) {
-    setWeatherData(weatherCache);
+    setWeatherData(weatherCache, false);
   }
 }
 
@@ -59,7 +59,7 @@ asap.onmessage = message => {
 
     if (weatherCache == null) {
 
-      setWeatherData(message.weather);
+      setWeatherData(message.weather, true);
     }
 
     weatherCache = message.weather;
@@ -85,25 +85,28 @@ function requestWeatherData() {
   asap.send({ command: 'weather' });
 }
 
-function setWeatherData(weather) {
+function setWeatherData(weather, dataChanged) {
   
   console.log(`Applying weather data`);
 
   let startTime = util.unixTimeToDate(weather.startTime);
-  
-  weatherText.text = weather.weather;
-  
-  setNightArc(weather.sunset, weather.sunrise);
-  
-  let rain = weather.hourlyRain;
-  
-  setRainBars(startTime, rain);
-  
-  let currTemp = weather.temp;
   let minTemp = Math.floor(weather.minTemp);
   let maxTemp = Math.ceil(weather.maxTemp);
+
+  if (dataChanged) {
   
-  setTempDisplay(currTemp, minTemp, maxTemp);
+    weatherText.text = weather.weather;
+    
+    setNightArc(weather.sunset, weather.sunrise);
+    
+    let rain = weather.hourlyRain;
+    
+    setRainBars(startTime, rain);
+    
+    let currTemp = weather.temp;
+    
+    setTempDisplay(currTemp, minTemp, maxTemp);
+  }
   
   setTempGraph(startTime, weather.hourlyTemp, minTemp, maxTemp, 8);
 }
