@@ -1,4 +1,4 @@
 /build
-/node_modulesng
+/node_modules
 /companion/openWeatherMapKey.js
 /.vscode
