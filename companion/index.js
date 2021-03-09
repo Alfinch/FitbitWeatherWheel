@@ -4,6 +4,7 @@ import asap from 'fitbit-asap/companion';
 import defaultSettings from './defaultSettings';
 import { settingsStorage } from 'settings';
 import openWeatherMapKey from './openWeatherMapKey';
+import { debounce } from 'debounce';
 
 const URL = `https://api.openweathermap.org/data/2.5/onecall`
   + `?appid=${openWeatherMapKey}&units=metric&exclude=minutely,daily,alerts`;
@@ -14,9 +15,9 @@ if (companion.launchReasons.settingsChanged) {
   onSettingsChanged();
 }
 
-settingsStorage.addEventListener('change', (evt) => {
+settingsStorage.addEventListener('change', debounce((evt) => {
   onSettingsChanged();
-});
+}, 1000));
 
 asap.onmessage = message => {
   

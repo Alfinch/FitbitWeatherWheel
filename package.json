@@ -27,6 +27,7 @@
     "build": "fitbit-build"
   },
   "dependencies": {
+    "debounce": "^1.2.0",
     "fitbit-asap": "^1.2.3"
   }
 }
