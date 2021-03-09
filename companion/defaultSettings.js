@@ -19,7 +19,7 @@ function defaultSettings() {
     ]
   });
   setDefaultSetting('workingStartTime', 9);
-  setDefaultSetting('workingEndTime', 15);
+  setDefaultSetting('workingEndTime', 17);
 }
 
 export default defaultSettings;
