@@ -1,7 +1,7 @@
 import clock from 'clock';
-import document from 'document';
-import * as util from './utils';
 import asap from 'fitbit-asap/app';
+import * as util from './utils';
+
 import setTimeDisplay from './watchface/timeDisplay';
 import setDayHand from './watchface/dayHand';
 import setNightArc from './watchface/nightArc';
@@ -9,8 +9,7 @@ import setRainBars from './watchface/rainBars';
 import setTempGraph from './watchface/tempGraph';
 import setTempDisplay from './watchface/tempDisplay';
 import setWorkArc from './watchface/workArc';
-
-const weatherText = document.getElementById('weather');
+import setWeatherDisplay from './watchface/weatherDisplay';
 
 var weatherCache;
 
@@ -95,7 +94,7 @@ function setWeatherData(weather, dataChanged) {
 
   if (dataChanged) {
   
-    weatherText.text = weather.weather;
+    setWeatherDisplay(weather.weather);
     
     setNightArc(weather.sunset, weather.sunrise);
     
