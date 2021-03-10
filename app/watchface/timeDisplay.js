@@ -11,21 +11,24 @@ function zeroPad(i) {
 function setTimeDisplay(hours, minutes) {
   
     let hoursDisplay;
+    let minutesDisplay = zeroPad(minutes);
+    let postfix = '';
 
     if (preferences.clockDisplay === '12h') {
 
-        let postfix = hours < 13 ? 'am' : 'pm';
-
-        hoursDisplay = hours % 12 || 12;
+        hoursDisplay = (hours % 12 || 12);
+        postfix = hours < 12 ? 'am' : 'pm';
+        timeText.style.fontSize = 50;
+        timeText.y = 185;
 
     } else {
 
         hoursDisplay = zeroPad(hours);
+        timeText.style.fontSize = 60;
+        timeText.y = 190;
     }
 
-    let minutesDisplay = zeroPad(minutes);
-
-    timeText.text = `${hoursDisplay}:${minutesDisplay}`;
+    timeText.text = `${hoursDisplay}:${minutesDisplay}${postfix}`;
 }
 
 export default setTimeDisplay;
