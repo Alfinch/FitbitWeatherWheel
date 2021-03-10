@@ -132,7 +132,7 @@
 
 #dayHand {
   fill: white;
-  stroke-width: 2;
+  stroke-width: 4;
   stroke-linecap: butt;
 }
 
@@ -180,11 +180,11 @@
 }
 
 #root.punchy #rainBarsA > arc {
-  fill: cyan;
+  fill: #00ccff;
 }
 
 #root.punchy #rainBarsB > arc {
-  fill: cyan;
+  fill: #00ccff;
 }
 
 #root.punchy #graphLineTransform > line {
@@ -230,11 +230,11 @@
 }
 
 #root.greyscale #rainBarsA > arc {
-  fill: #CCCCCC;
+  fill: #aaaaaa;
 }
 
 #root.greyscale #rainBarsB > arc {
-  fill: #CCCCCC;
+  fill: #aaaaaa;
 }
 
 #root.greyscale #graphLineTransform > line {
