@@ -68,39 +68,33 @@
     <arc /><arc /><arc /><arc />
   </g>
   
-  <mask id="graphLineMask">
-    <g id="graphLineTransform" transform="translate(168, 168)">
-      <!-- 192 segments - 8 per hour -->
-      <line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line />
-      <line /><line /><line /><line /><line /><line /><line /><line />
-    </g>
-  </mask>
-    
-  <svg mask="#graphLineMask" width="336" height="336">
-    <gradientRect id="graphGradient" />
-  </svg>
+  <g id="graphLineTransform" transform="translate(168, 168)">
+    <!-- 192 segments - 8 per hour -->
+    <line /><line /><line /><line /><line /><line /><line /><line />
+    <line /><line /><line /><line /><line /><line /><line /><line />
+    <line /><line /><line /><line /><line /><line /><line /><line />
+    <line /><line /><line /><line /><line /><line /><line /><line />
+    <line /><line /><line /><line /><line /><line /><line /><line />
+    <line /><line /><line /><line /><line /><line /><line /><line />
+    <line /><line /><line /><line /><line /><line /><line /><line />
+    <line /><line /><line /><line /><line /><line /><line /><line />
+    <line /><line /><line /><line /><line /><line /><line /><line />
+    <line /><line /><line /><line /><line /><line /><line /><line />
+    <line /><line /><line /><line /><line /><line /><line /><line />
+    <line /><line /><line /><line /><line /><line /><line /><line />
+    <line /><line /><line /><line /><line /><line /><line /><line />
+    <line /><line /><line /><line /><line /><line /><line /><line />
+    <line /><line /><line /><line /><line /><line /><line /><line />
+    <line /><line /><line /><line /><line /><line /><line /><line />
+    <line /><line /><line /><line /><line /><line /><line /><line />
+    <line /><line /><line /><line /><line /><line /><line /><line />
+    <line /><line /><line /><line /><line /><line /><line /><line />
+    <line /><line /><line /><line /><line /><line /><line /><line />
+    <line /><line /><line /><line /><line /><line /><line /><line />
+    <line /><line /><line /><line /><line /><line /><line /><line />
+    <line /><line /><line /><line /><line /><line /><line /><line />
+    <line /><line /><line /><line /><line /><line /><line /><line />
+  </g>
   
   <g id="dayHandTransform" transform="translate(168, 168)">
     <line id="dayHand" x1="0" y1="105" x2="0" y2="165" />

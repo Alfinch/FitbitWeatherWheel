@@ -1,6 +1,6 @@
 <svg>
   <defs>
-    <link rel="stylesheet" href="test.css" />
+    <link rel="stylesheet" href="weatherWheel.css" />
     <link rel="import" href="/mnt/sysassets/system_widget.defs" />
   </defs>
 </svg>

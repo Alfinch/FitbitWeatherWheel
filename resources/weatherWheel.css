@@ -8,22 +8,8 @@
   gradient-y1: 168;
   gradient-x2: 336;
   gradient-y2: 336;
-  gradient-color1: #003399;
+  gradient-color1: #220044;
   gradient-color2: black;
-}
-
-#graphGradient {
-  x: 0;
-  y: 0;
-  width: 336;
-  height: 336;
-  gradient-type: radial;
-  gradient-x1: 168;
-  gradient-y1: 168;
-  gradient-x2: 336;
-  gradient-y2: 336;
-  gradient-color1: yellow;
-  gradient-color2: red;
 }
 
 #mainRingA {
@@ -31,7 +17,7 @@
   y: 3;
   width: 330;
   height: 330;
-  fill: #003399;
+  fill: #440088;
   arc-width: 30;
   start-angle: 0;
   sweep-angle: 360;
@@ -42,7 +28,7 @@
   y: 33;
   width: 270;
   height: 270;
-  fill: #003399;
+  fill: #440088;
   arc-width: 30;
   start-angle: 0;
   sweep-angle: 360;
@@ -53,7 +39,7 @@
   y: 3;
   width: 330;
   height: 330;
-  fill: #002266;
+  fill: #220044;
   arc-width: 30;
   start-angle: 0;
   sweep-angle: 0;
@@ -64,7 +50,7 @@
   y: 33;
   width: 270;
   height: 270;
-  fill: #002266;
+  fill: #220044;
   arc-width: 30;
   start-angle: 0;
   sweep-angle: 0;
@@ -75,7 +61,7 @@
   y: 3;
   width: 330;
   height: 330;
-  fill: #0044CC;
+  fill: #6600cc;
   arc-width: 30;
   start-angle: 0;
   sweep-angle: 0;
@@ -86,7 +72,7 @@
   y: 33;
   width: 270;
   height: 270;
-  fill: #0044CC;
+  fill: #6600cc;
   arc-width: 30;
   start-angle: 0;
   sweep-angle: 0;
@@ -127,7 +113,7 @@
 }
 
 #maxTemp {
-  fill: #ff0000;
+  fill: #ff7700;
   text-length: 12;
   font-size: 25;
   font-family: System-Bold;
@@ -141,7 +127,7 @@
 }
 
 #minTemp {
-  fill: #ff0000;
+  fill: #ff7700;
   text-length: 12;
   font-size: 25;
   font-family: System-Bold;
@@ -178,4 +164,5 @@
 #graphLineTransform line {
   stroke-width: 2;
   stroke-linecap: butt;
+  fill: #ff7700;
 }
