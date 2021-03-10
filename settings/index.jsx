@@ -28,7 +28,6 @@ function HelloWorld(props) {
           { name: "Saturday", value: 5 },
           { name: "Sunday", value: 6 },
         ]}
-        disabled={!(props.settings.showWorkingHours === "true")}
       />
 
       <Slider
@@ -54,6 +53,20 @@ function HelloWorld(props) {
 
   return (
     <Page>
+    
+      <Section
+        title={<Text bold align="center">General</Text>}>
+    
+        <Select
+          label={`Theme`}
+          settingsKey="colorScheme"
+          options={[
+            { name: "Punchy", value: 0 },
+            { name: "Monochrome", value: 1 }
+          ]}
+        />
+
+      </Section>
     
       <Section
         title={<Text bold align="center">Working hours</Text>}>

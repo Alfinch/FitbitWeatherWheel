@@ -8,8 +8,6 @@
   gradient-y1: 168;
   gradient-x2: 336;
   gradient-y2: 336;
-  gradient-color1: #440088;
-  gradient-color2: black;
 }
 
 #mainRingA {
@@ -17,7 +15,6 @@
   y: 3;
   width: 330;
   height: 330;
-  fill: #440088;
   arc-width: 30;
   start-angle: 0;
   sweep-angle: 360;
@@ -28,7 +25,6 @@
   y: 33;
   width: 270;
   height: 270;
-  fill: #440088;
   arc-width: 30;
   start-angle: 0;
   sweep-angle: 360;
@@ -39,10 +35,7 @@
   y: 3;
   width: 330;
   height: 330;
-  fill: #220044;
   arc-width: 30;
-  start-angle: 0;
-  sweep-angle: 0;
 }
 
 #nightArcB {
@@ -50,10 +43,7 @@
   y: 33;
   width: 270;
   height: 270;
-  fill: #220044;
   arc-width: 30;
-  start-angle: 0;
-  sweep-angle: 0;
 }
 
 #workArcA {
@@ -61,10 +51,7 @@
   y: 3;
   width: 330;
   height: 330;
-  fill: #6600cc;
   arc-width: 30;
-  start-angle: 0;
-  sweep-angle: 0;
 }
 
 #workArcB {
@@ -72,10 +59,7 @@
   y: 33;
   width: 270;
   height: 270;
-  fill: #6600cc;
   arc-width: 30;
-  start-angle: 0;
-  sweep-angle: 0;
 }
 
 #secondaryDisplayA {
@@ -127,21 +111,12 @@
 }
 
 #minTemp {
-  fill: #ff7700;
   text-length: 12;
   font-size: 25;
   font-family: System-Bold;
   text-anchor: middle;
   x: 236;
   y: -172;
-}
-
-#rainBarsA > arc {
-  fill: cyan;
-}
-
-#rainBarsB > arc {
-  fill: cyan;
 }
 
 #graphHourMarkers > g > line {
@@ -161,8 +136,107 @@
   stroke-linecap: butt;
 }
 
-#graphLineTransform line {
+#graphLineTransform > line {
   stroke-width: 2;
   stroke-linecap: butt;
+}
+
+/* Theme "Punchy" */
+#root.punchy #background {
+  gradient-color1: #440088;
+  gradient-color2: black;
+}
+
+#root.punchy #mainRingA {
+  fill: #440088;
+}
+
+#root.punchy #mainRingB {
+  fill: #440088;
+}
+
+#root.punchy #nightArcA {
+  fill: #220044;
+}
+
+#root.punchy #nightArcB {
+  fill: #220044;
+}
+
+#root.punchy #workArcA {
+  fill: #6600cc;
+}
+
+#root.punchy #workArcB {
+  fill: #6600cc;
+}
+
+#root.punchy #maxTemp {
   fill: #ff7700;
+}
+
+#root.punchy #minTemp {
+  fill: #ff7700;
+}
+
+#root.punchy #rainBarsA > arc {
+  fill: cyan;
+}
+
+#root.punchy #rainBarsB > arc {
+  fill: cyan;
+}
+
+#root.punchy #graphLineTransform > line {
+  fill: #ff7700;
+}
+
+/* Theme "Greyscale" */
+#root.greyscale #background {
+  gradient-color1: #666666;
+  gradient-color2: black;
+}
+
+#root.greyscale #mainRingA {
+  fill: #444444;
+}
+
+#root.greyscale #mainRingB {
+  fill: #444444;
+}
+
+#root.greyscale #nightArcA {
+  fill: #222222;
+}
+
+#root.greyscale #nightArcB {
+  fill: #222222;
+}
+
+#root.greyscale #workArcA {
+  fill: #666666;
+}
+
+#root.greyscale #workArcB {
+  fill: #666666;
+}
+
+#root.greyscale #maxTemp {
+  fill: white;
+}
+
+#root.greyscale #minTemp {
+  fill: white;
+}
+
+#root.greyscale #rainBarsA > arc {
+  fill: #CCCCCC;
+}
+
+#root.greyscale #rainBarsB > arc {
+  fill: #CCCCCC;
+}
+
+#root.greyscale #graphLineTransform > line {
+  fill: white;
 }

@@ -7,10 +7,17 @@ function setDefaultSetting(key, value) {
 
 function defaultSettings() {
   
+  setDefaultSetting('colorScheme', {
+    selected: [0],
+    values: [
+      { name: 'Punchy', value: 0 }
+    ]
+  });
+
   setDefaultSetting('showWorkingHours', false);
   setDefaultSetting('workingDays', {
-    'selected': [0,1,2,3,4],
-    'values': [
+    selected: [0,1,2,3,4],
+    values: [
       { name: 'Monday', value: 0 },
       { name: 'Tuesday', value: 1 },
       { name: 'Wednesday', value: 2 },

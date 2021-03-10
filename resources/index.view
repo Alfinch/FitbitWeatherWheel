@@ -1,4 +1,4 @@
-<svg>
+<svg id="root" class="punchy">
   
   <gradientRect id="background" />
   
