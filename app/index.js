@@ -27,7 +27,7 @@ clock.ontick = (evt) => {
   setDayHand(hours, minutes);
 
   if (weatherCache) {
-    setWeatherData(weatherCache, false);
+    setTimeout(() => setWeatherData(weatherCache, false), 100);
   }
 }
 
@@ -57,12 +57,8 @@ asap.onmessage = message => {
   
   else if (message.type === 'weather') {
 
-    if (weatherCache == null) {
-
-      setWeatherData(message.weather, true);
-    }
-
     weatherCache = message.weather;
+    setWeatherData(weatherCache, true);
   }
 }
 
