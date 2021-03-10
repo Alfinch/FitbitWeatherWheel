@@ -9,7 +9,7 @@ const graphSegments = document.getElementById('graphLineTransform').getElementsB
 function setTempGraph(startTime, hourlyTemps, minTemp, maxTemp, segments) {
 
     // 25 nodes for a full circle of 24 segments
-    const NUM_NODES = 25;
+    const NUM_NODES = Math.max(25, hourlyTemps.length);
     const NUM_POINTS = 24 * segments + 1;
   
     const startAngle = util.dateToFaceAngle(startTime);

@@ -92,7 +92,7 @@
   sweep-angle: 0;
 }
 
-#temp {
+#secondaryDisplayA {
   fill: white;
   text-length: 8;
   font-size: 30;
@@ -112,7 +112,7 @@
   y: 190;
 }
 
-#weather {
+#secondaryDisplayB {
   fill: white;
   text-length: 12;
   font-size: 30;
@@ -122,32 +122,32 @@
   y: 235;
 }
 
-#hiTempTransform {
+#maxTempTransform {
   transform: rotate(-45);
 }
 
-#hiTemp {
+#maxTemp {
   fill: #ff0000;
   text-length: 12;
-  font-size: 26;
-  font-family: System-Regular;
+  font-size: 25;
+  font-family: System-Bold;
   text-anchor: middle;
   x: 0;
-  y: 68;
+  y: 66;
 }
 
-#loTempTransform {
+#minTempTransform {
   transform: rotate(45);
 }
 
-#loTemp {
+#minTemp {
   fill: #ff0000;
   text-length: 12;
-  font-size: 26;
-  font-family: System-Regular;
+  font-size: 25;
+  font-family: System-Bold;
   text-anchor: middle;
   x: 236;
-  y: -170;
+  y: -172;
 }
 
 #rainBarsA > arc {

@@ -11,16 +11,16 @@
   <arc id="workArcA" />
   <arc id="workArcB" />
   
-  <g id="hiTempTransform">
-    <text id="hiTemp" />
+  <g id="maxTempTransform">
+    <text id="maxTemp" />
   </g>
-  <g id="loTempTransform">
-    <text id="loTemp" />
+  <g id="minTempTransform">
+    <text id="minTemp" />
   </g>
   
-  <text id="temp" />
+  <text id="secondaryDisplayA" />
   <text id="time" />
-  <text id="weather" />
+  <text id="secondaryDisplayB" />
   
   <g id="graphHourMarkers" transform="translate(168, 168)">
     <g transform="rotate(0)"><line /></g>

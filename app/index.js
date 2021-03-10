@@ -9,7 +9,8 @@ import setRainBars from './watchface/rainBars';
 import setTempGraph from './watchface/tempGraph';
 import setTempDisplay from './watchface/tempDisplay';
 import setWorkArc from './watchface/workArc';
-import setWeatherDisplay from './watchface/weatherDisplay';
+import setSecondaryDisplayA from './watchface/secondaryDisplayA';
+import setSecondaryDisplayB from './watchface/secondaryDisplayB';
 
 var weatherCache;
 
@@ -89,13 +90,20 @@ function setWeatherData(weather, dataChanged) {
   console.log(`Applying weather data`);
 
   let startTime = util.unixTimeToDate(weather.startTime);
-  let minTemp = Math.floor(weather.minTemp);
-  let maxTemp = Math.ceil(weather.maxTemp);
+  let currentTime = new Date();
+  currentTime.setMinutes(0, 0, 0);
+
+  // Whole hours between start time and current time
+  let skipHours = (currentTime - startTime) / 3600000;
+
+  console.log(`Skipping ${skipHours} hour(s) of weather data`);
+
+  let temps = weather.hourlyTemp.slice(skipHours, Math.max(25, weather.hourlyTemp.length) - 1);
+  let minTemp = Math.floor(Math.min.apply(Math, temps));
+  let maxTemp = Math.ceil(Math.max.apply(Math, temps));
 
   if (dataChanged) {
   
-    setWeatherDisplay(weather.weather);
-    
     setNightArc(weather.sunset, weather.sunrise);
     
     let rain = weather.hourlyRain;
@@ -104,8 +112,11 @@ function setWeatherData(weather, dataChanged) {
     
     let currTemp = weather.temp;
     
-    setTempDisplay(currTemp, minTemp, maxTemp);
+    setTempDisplay(minTemp, maxTemp);
+
+    setSecondaryDisplayA(`${currTemp.toFixed(1)}°C`);
+    setSecondaryDisplayB(weather.weather);
   }
   
-  setTempGraph(startTime, weather.hourlyTemp, minTemp, maxTemp, 8);
+  setTempGraph(currentTime, temps, minTemp, maxTemp, 8);
 }

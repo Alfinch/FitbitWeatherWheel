@@ -1,14 +1,12 @@
 import document from 'document';
 
-const tempText = document.getElementById('temp');
-const hiTempText = document.getElementById('hiTemp');
-const loTempText = document.getElementById('loTemp');
+const minTempText = document.getElementById('minTemp');
+const maxTempText = document.getElementById('maxTemp');
 
-function setTempDisplay(currTemp, minTemp, maxTemp) {
+function setTempDisplay(minTemp, maxTemp) {
 
-    tempText.text = `${currTemp.toFixed(1)}°C`;
-    loTempText.text = `↓ ${minTemp}°C`;
-    hiTempText.text = `↑ ${maxTemp}°C`;
+    minTempText.text = `↓${minTemp}°C`;
+    maxTempText.text = `↑${maxTemp}°C`;
 }
 
 export default setTempDisplay;
