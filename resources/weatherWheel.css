@@ -210,3 +210,7 @@
 #root.primary #graphLineTransform > line { fill: red; }
 #root.primary #rainBarsA > arc { fill: blue; }
 #root.primary #rainBarsB > arc { fill: blue; }
+#root.primary #graphHourMarkers > g > line {
+  fill: #00ff00;
+  opacity: 1;
+}
