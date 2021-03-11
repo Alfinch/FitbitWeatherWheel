@@ -10,6 +10,10 @@ function setTheme(theme) {
         root.class = 'greyscale';
         break;
 
+      case 2:
+        root.class = 'primary';
+        break;
+
       default:
         root.class = 'punchy';
         break;

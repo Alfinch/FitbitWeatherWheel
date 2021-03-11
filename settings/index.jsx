@@ -62,7 +62,8 @@ function HelloWorld(props) {
           settingsKey="colorScheme"
           options={[
             { name: "Punchy", value: 0 },
-            { name: "Monochrome", value: 1 }
+            { name: "Monochrome", value: 1 },
+            { name: "Primary", value: 2 }
           ]}
         />
 

@@ -8,6 +8,7 @@
   gradient-y1: 168;
   gradient-x2: 336;
   gradient-y2: 336;
+  gradient-color2: black;
 }
 
 #mainRingA {
@@ -97,7 +98,6 @@
 }
 
 #maxTemp {
-  fill: #ff7700;
   text-length: 12;
   font-size: 25;
   font-family: System-Bold;
@@ -142,101 +142,71 @@
 }
 
 /* Theme "Punchy" */
-#root.punchy #background {
-  gradient-color1: #440088;
-  gradient-color2: black;
-}
-
-#root.punchy #mainRingA {
-  fill: #440088;
-}
-
-#root.punchy #mainRingB {
-  fill: #440088;
-}
-
-#root.punchy #nightArcA {
-  fill: #220044;
-}
-
-#root.punchy #nightArcB {
-  fill: #220044;
-}
-
-#root.punchy #workArcA {
-  fill: #6600cc;
-}
-
-#root.punchy #workArcB {
-  fill: #6600cc;
-}
-
-#root.punchy #maxTemp {
-  fill: #ff7700;
-}
-
-#root.punchy #minTemp {
-  fill: #ff7700;
-}
-
-#root.punchy #rainBarsA > arc {
-  fill: #00ccff;
-}
-
-#root.punchy #rainBarsB > arc {
-  fill: #00ccff;
-}
-
-#root.punchy #graphLineTransform > line {
-  fill: #ff7700;
-}
+#root.punchy #background { gradient-color1: #440088; }
+#root.punchy #mainRingA { fill: #440088; }
+#root.punchy #mainRingB { fill: #440088; }
+#root.punchy #nightArcA { fill: #220044; }
+#root.punchy #nightArcB { fill: #220044; }
+#root.punchy #workArcA { fill: #6600cc; }
+#root.punchy #workArcB { fill: #6600cc; }
+#root.punchy #maxTemp { fill: #ff7700; }
+#root.punchy #minTemp { fill: #ff7700; }
+#root.punchy #graphLineTransform > line { fill: #ff7700; }
+#root.punchy #rainBarsA > arc { fill: #00ccff; }
+#root.punchy #rainBarsB > arc { fill: #00ccff; }
 
 /* Theme "Greyscale" */
-#root.greyscale #background {
-  gradient-color1: #666666;
-  gradient-color2: black;
-}
+#root.greyscale #background { gradient-color1: #666666; }
+#root.greyscale #mainRingA { fill: #444444; }
+#root.greyscale #mainRingB { fill: #444444; }
+#root.greyscale #nightArcA { fill: #222222; }
+#root.greyscale #nightArcB { fill: #222222; }
+#root.greyscale #workArcA { fill: #666666; }
+#root.greyscale #workArcB { fill: #666666; }
+#root.greyscale #maxTemp { fill: white; }
+#root.greyscale #minTemp { fill: white; }
+#root.greyscale #graphLineTransform > line { fill: white; }
+#root.greyscale #rainBarsA > arc { fill: #aaaaaa; }
+#root.greyscale #rainBarsB > arc { fill: #aaaaaa; }
 
-#root.greyscale #mainRingA {
-  fill: #444444;
-}
-
-#root.greyscale #mainRingB {
-  fill: #444444;
-}
-
-#root.greyscale #nightArcA {
-  fill: #222222;
-}
-
-#root.greyscale #nightArcB {
-  fill: #222222;
-}
-
-#root.greyscale #workArcA {
-  fill: #666666;
-}
-
-#root.greyscale #workArcB {
-  fill: #666666;
-}
-
-#root.greyscale #maxTemp {
-  fill: white;
-}
-
-#root.greyscale #minTemp {
-  fill: white;
-}
-
-#root.greyscale #rainBarsA > arc {
-  fill: #aaaaaa;
-}
-
-#root.greyscale #rainBarsB > arc {
-  fill: #aaaaaa;
-}
-
-#root.greyscale #graphLineTransform > line {
-  fill: white;
-}
+/* Theme "Primary" */
+#root.primary #background { gradient-color1: black; }
+#root.primary #mainRingA {
+  fill: #00ff00;
+  arc-width: 2; }
+#root.primary #mainRingB {
+  fill: #00ff00;
+  arc-width: 2;
+  x: 61;
+  y: 61;
+  width: 214;
+  height: 214; }
+#root.primary #nightArcA {
+  fill: #007700;
+  x: 5;
+  y: 5;
+  width: 326;
+  height: 326;
+  arc-width: 28; }
+#root.primary #nightArcB {
+  fill: #007700;
+  width: 270;
+  height: 270;
+  arc-width: 28; }
+#root.primary #workArcA {
+  fill: #007700;
+  x: 5;
+  y: 5;
+  width: 326;
+  height: 326;
+  arc-width: 28; }
+#root.primary #workArcB {
+  fill: #007700;
+  width: 270;
+  height: 270;
+  arc-width: 28; }
+#root.primary #maxTemp { fill: red; }
+#root.primary #minTemp { fill: red; }
+#root.primary #graphLineTransform > line { fill: red; }
+#root.primary #rainBarsA > arc { fill: blue; }
+#root.primary #rainBarsB > arc { fill: blue; }
