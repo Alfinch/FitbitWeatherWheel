@@ -17,6 +17,9 @@
   <g id="minTempTransform">
     <text id="minTemp" />
   </g>
+  <g id="rainVolumeTransform">
+    <text id="rainVolume" />
+  </g>
   
   <text id="secondaryDisplayA" />
   <text id="time" />

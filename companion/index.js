@@ -61,7 +61,8 @@ function onWeatherData(data) {
     sunset: data.current.sunset,
     temp: data.current.temp,
     startTime: hourly[0].dt,
-    hourlyRain: hourly.map(h => h.pop),
+    hourlyRainPop: hourly.map(h => h.pop),
+    hourlyRainVol: hourly.map(h => h.rain ? h.rain["1h"] : 0),
     hourlyTemp: hourly.map(h => h.temp)
   };
 

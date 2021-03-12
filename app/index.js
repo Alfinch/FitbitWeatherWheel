@@ -1,5 +1,6 @@
 import clock from 'clock';
 import asap from 'fitbit-asap/app';
+import dateFormat from 'dateformat';
 import * as util from './utils';
 import setTheme from './theme';
 
@@ -12,7 +13,7 @@ import setTempDisplay from './watchface/tempDisplay';
 import setWorkArc from './watchface/workArc';
 import setSecondaryDisplayA from './watchface/secondaryDisplayA';
 import setSecondaryDisplayB from './watchface/secondaryDisplayB';
-import dateFormat from 'dateformat';
+import setRainVolumeDisplay from './watchface/rainVolumeDisplay';
 
 var weatherCache;
 var secondaryAType;
@@ -31,11 +32,11 @@ clock.ontick = (evt) => {
   setDayHand(hours, minutes);
 
   if (secondaryAType === 3) {
-    setSecondaryDisplayA(dateFormat(today, 'mmmm dS'));
+    setSecondaryDisplayA(dateFormat(today, 'mmm dS'));
   }
 
   if (secondaryBType === 3) {
-    setSecondaryDisplayB(dateFormat(today, 'mmmm dS'));
+    setSecondaryDisplayB(dateFormat(today, 'mmm dS'));
   }
 
   if (weatherCache) {
@@ -116,8 +117,15 @@ function setWeatherData(weather) {
 
   setNightArc(weather.sunset, weather.sunrise);
   
-  let rain = weather.hourlyRain;
+  let pop = weather.hourlyRainPop.slice(skipHours, Math.max(24, weather.hourlyRainPop.length) - 1);
+  let vol = weather.hourlyRainVol.slice(skipHours, Math.max(24, weather.hourlyRainVol.length) - 1);
+  let minVol = Math.floor(Math.min.apply(Math, vol));
+  let maxVol = Math.ceil(Math.max.apply(Math, vol));
+  let totalVol = vol.reduce((total, v) => total + v);
+  let volRange = maxVol - minVol;
+  let rain = vol.map((v, i) => ((v - minVol) / volRange) * pop[i]);
   
+  setRainVolumeDisplay(totalVol);
   setRainBars(startTime, rain);
   
   setTempDisplay(minTemp, maxTemp);

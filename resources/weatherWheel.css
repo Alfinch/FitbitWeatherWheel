@@ -65,7 +65,7 @@
 
 #secondaryDisplayA {
   fill: white;
-  text-length: 20;
+  text-length: 32;
   font-size: 30;
   font-family: System-Regular;
   text-anchor: middle;
@@ -85,7 +85,7 @@
 
 #secondaryDisplayB {
   fill: white;
-  text-length: 20;
+  text-length: 32;
   font-size: 30;
   font-family: System-Regular;
   text-anchor: middle;
@@ -117,6 +117,19 @@
   text-anchor: middle;
   x: 236;
   y: -172;
+}
+
+#rainVolumeTransform {
+  transform: rotate(45);
+}
+
+#rainVolume {
+  text-length: 12;
+  font-size: 25;
+  font-family: System-Bold;
+  text-anchor: middle;
+  x: 236;
+  y: 188;
 }
 
 #graphHourMarkers > g > line {
@@ -154,6 +167,7 @@
 #root.punchy #graphLineTransform > line { fill: #ff7700; }
 #root.punchy #rainBarsA > arc { fill: #00ccff; }
 #root.punchy #rainBarsB > arc { fill: #00ccff; }
+#root.punchy #rainVolume { fill: #00ccff; }
 
 /* Theme "Greyscale" */
 #root.greyscale #background { gradient-color1: #666666; }
@@ -168,6 +182,7 @@
 #root.greyscale #graphLineTransform > line { fill: white; }
 #root.greyscale #rainBarsA > arc { fill: #aaaaaa; }
 #root.greyscale #rainBarsB > arc { fill: #aaaaaa; }
+#root.greyscale #rainVolume { fill: white; }
 
 /* Theme "Primary" */
 #root.primary #background { gradient-color1: black; }
@@ -210,6 +225,7 @@
 #root.primary #graphLineTransform > line { fill: red; }
 #root.primary #rainBarsA > arc { fill: blue; }
 #root.primary #rainBarsB > arc { fill: blue; }
+#root.primary #rainVolume { fill: blue; }
 #root.primary #graphHourMarkers > g > line {
   fill: #00ff00;
   opacity: 1;
