@@ -13,6 +13,18 @@ function defaultSettings() {
       { name: 'Punchy', value: 0 }
     ]
   });
+  setDefaultSetting('secondaryA', {
+    selected: [0],
+    values: [
+      { name: 'Temperature', value: 0 }
+    ]
+  });
+  setDefaultSetting('secondaryB', {
+    selected: [2],
+    values: [
+      { name: 'Weather', value: 2 }
+    ]
+  });
 
   setDefaultSetting('showWorkingHours', false);
   setDefaultSetting('workingDays', {

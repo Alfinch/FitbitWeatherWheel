@@ -12,8 +12,11 @@ import setTempDisplay from './watchface/tempDisplay';
 import setWorkArc from './watchface/workArc';
 import setSecondaryDisplayA from './watchface/secondaryDisplayA';
 import setSecondaryDisplayB from './watchface/secondaryDisplayB';
+import dateFormat from 'dateformat';
 
 var weatherCache;
+var secondaryAType;
+var secondaryBType;
 
 clock.granularity = 'minutes';
 clock.ontick = (evt) => {
@@ -27,8 +30,16 @@ clock.ontick = (evt) => {
   setTimeDisplay(hours, minutes);
   setDayHand(hours, minutes);
 
+  if (secondaryAType === 3) {
+    setSecondaryDisplayA(dateFormat(today, 'mmmm dS'));
+  }
+
+  if (secondaryBType === 3) {
+    setSecondaryDisplayB(dateFormat(today, 'mmmm dS'));
+  }
+
   if (weatherCache) {
-    setTimeout(() => setWeatherData(weatherCache, false), 100);
+    setTimeout(() => setWeatherData(weatherCache), 100);
   }
 }
 
@@ -59,7 +70,7 @@ asap.onmessage = message => {
   else if (message.type === 'weather') {
 
     weatherCache = message.weather;
-    setWeatherData(weatherCache, true);
+    setWeatherData(weatherCache);
   }
 }
 
@@ -73,6 +84,9 @@ function applySettings(settings) {
 
   console.log(`Applying settings`);
 
+  secondaryAType = settings.secondaryA.selected[0];
+  secondaryBType = settings.secondaryB.selected[0];
+  
   setTheme(settings.colorScheme.selected[0]);
   setWorkArc(settings.showWorkingHours, settings.workingDays, settings.workingStartTime, settings.workingEndTime);
 }
@@ -83,7 +97,7 @@ function requestWeatherData() {
   asap.send({ command: 'weather' });
 }
 
-function setWeatherData(weather, dataChanged) {
+function setWeatherData(weather) {
   
   console.log(`Applying weather data`);
 
@@ -100,21 +114,29 @@ function setWeatherData(weather, dataChanged) {
   let minTemp = Math.floor(Math.min.apply(Math, temps));
   let maxTemp = Math.ceil(Math.max.apply(Math, temps));
 
-  if (dataChanged) {
+  setNightArc(weather.sunset, weather.sunrise);
   
-    setNightArc(weather.sunset, weather.sunrise);
-    
-    let rain = weather.hourlyRain;
-    
-    setRainBars(startTime, rain);
-    
-    let currTemp = weather.temp;
-    
-    setTempDisplay(minTemp, maxTemp);
+  let rain = weather.hourlyRain;
+  
+  setRainBars(startTime, rain);
+  
+  setTempDisplay(minTemp, maxTemp);
 
-    setSecondaryDisplayA(`${currTemp.toFixed(1)}°C`);
-    setSecondaryDisplayB(weather.weather);
-  }
+  setSecondaryDisplay(secondaryAType, weather, setSecondaryDisplayA);
+  setSecondaryDisplay(secondaryBType, weather, setSecondaryDisplayB);
   
   setTempGraph(currentTime, temps, minTemp, maxTemp, 8);
+}
+
+function setSecondaryDisplay(type, weather, set) {
+  switch(type) {
+    case 0: // Temperature
+      set(`${weather.temp.toFixed(1)}°C`);
+      break;
+    case 1: // Rain
+      break;
+    case 2: // Weather
+      set(weather.weather);
+      break;
+  }
 }

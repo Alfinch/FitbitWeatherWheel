@@ -66,6 +66,28 @@ function HelloWorld(props) {
             { name: "Primary", value: 2 }
           ]}
         />
+    
+        <Select
+          label={`Secondary display (top)`}
+          settingsKey="secondaryA"
+          options={[
+            { name: "Temperature", value: 0 },
+            { name: "Rain", value: 1 },
+            { name: "Weather", value: 2 },
+            { name: "Date", value: 3 }
+          ]}
+        />
+    
+        <Select
+          label={`Secondary display (bottom)`}
+          settingsKey="secondaryB"
+          options={[
+            { name: "Temperature", value: 0 },
+            { name: "Rain", value: 1 },
+            { name: "Weather", value: 2 },
+            { name: "Date", value: 3 }
+          ]}
+        />
 
       </Section>
     

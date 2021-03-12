@@ -65,7 +65,7 @@
 
 #secondaryDisplayA {
   fill: white;
-  text-length: 8;
+  text-length: 20;
   font-size: 30;
   font-family: System-Regular;
   text-anchor: middle;
@@ -85,7 +85,7 @@
 
 #secondaryDisplayB {
   fill: white;
-  text-length: 12;
+  text-length: 20;
   font-size: 30;
   font-family: System-Regular;
   text-anchor: middle;
