@@ -2,9 +2,13 @@ import document from 'document';
 
 const rainVolumeText = document.getElementById('rainVolume');
 
-function setRainVolumeDisplay(rainVolume) {
+function setRainVolumeDisplay(show, rainVolume) {
 
-    rainVolumeText.text = `${Math.round(rainVolume)}mm`;
+    if (show) {
+        rainVolumeText.text = `${Math.round(rainVolume)}mm`;
+    } else {
+        rainVolumeText.text = '';
+    }
 }
 
 export default setRainVolumeDisplay;

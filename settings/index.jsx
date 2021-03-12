@@ -71,8 +71,8 @@ function HelloWorld(props) {
           label={`Secondary display (top)`}
           settingsKey="secondaryA"
           options={[
-            { name: "Temperature", value: 0 },
-            { name: "Rain", value: 1 },
+            { name: "Hide", value: 0 },
+            { name: "Temperature", value: 1 },
             { name: "Weather", value: 2 },
             { name: "Date", value: 3 }
           ]}
@@ -82,12 +82,18 @@ function HelloWorld(props) {
           label={`Secondary display (bottom)`}
           settingsKey="secondaryB"
           options={[
-            { name: "Temperature", value: 0 },
-            { name: "Rain", value: 1 },
+            { name: "Hide", value: 0 },
+            { name: "Temperature", value: 1 },
             { name: "Weather", value: 2 },
             { name: "Date", value: 3 }
           ]}
         />
+
+        <Toggle
+          settingsKey="showChartValues"
+          label="Show key chart values"
+        />
+        <Text italic>If enabled, minimum and maximum temperature and total rain volume for the next 24 hours will be shown in the corners.</Text>
 
       </Section>
     

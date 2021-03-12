@@ -18,6 +18,7 @@ import setRainVolumeDisplay from './watchface/rainVolumeDisplay';
 var weatherCache;
 var secondaryAType;
 var secondaryBType;
+var showChartValues;
 
 clock.granularity = 'minutes';
 clock.ontick = (evt) => {
@@ -87,6 +88,7 @@ function applySettings(settings) {
 
   secondaryAType = settings.secondaryA.selected[0];
   secondaryBType = settings.secondaryB.selected[0];
+  showChartValues = settings.showChartValues;
   
   setTheme(settings.colorScheme.selected[0]);
   setWorkArc(settings.showWorkingHours, settings.workingDays, settings.workingStartTime, settings.workingEndTime);
@@ -125,10 +127,10 @@ function setWeatherData(weather) {
   let volRange = maxVol - minVol;
   let rain = vol.map((v, i) => ((v - minVol) / volRange) * pop[i]);
   
-  setRainVolumeDisplay(totalVol);
+  setRainVolumeDisplay(showChartValues, totalVol);
   setRainBars(startTime, rain);
   
-  setTempDisplay(minTemp, maxTemp);
+  setTempDisplay(showChartValues, minTemp, maxTemp);
 
   setSecondaryDisplay(secondaryAType, weather, setSecondaryDisplayA);
   setSecondaryDisplay(secondaryBType, weather, setSecondaryDisplayB);
@@ -138,10 +140,11 @@ function setWeatherData(weather) {
 
 function setSecondaryDisplay(type, weather, set) {
   switch(type) {
-    case 0: // Temperature
-      set(`${weather.temp.toFixed(1)}°C`);
+    case 0: // Hide
+      set('');
       break;
-    case 1: // Rain
+    case 1: // Temperature
+      `${weather.temp.toFixed(1)}°C`
       break;
     case 2: // Weather
       set(weather.weather);

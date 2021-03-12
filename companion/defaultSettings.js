@@ -14,9 +14,9 @@ function defaultSettings() {
     ]
   });
   setDefaultSetting('secondaryA', {
-    selected: [0],
+    selected: [3],
     values: [
-      { name: 'Temperature', value: 0 }
+      { name: 'Date', value: 3 }
     ]
   });
   setDefaultSetting('secondaryB', {

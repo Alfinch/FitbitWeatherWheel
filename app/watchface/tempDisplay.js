@@ -3,10 +3,15 @@ import document from 'document';
 const minTempText = document.getElementById('minTemp');
 const maxTempText = document.getElementById('maxTemp');
 
-function setTempDisplay(minTemp, maxTemp) {
+function setTempDisplay(show, minTemp, maxTemp) {
 
-    minTempText.text = `↓${minTemp}°C`;
-    maxTempText.text = `↑${maxTemp}°C`;
+    if (show) {
+        minTempText.text = `↓${minTemp}°C`;
+        maxTempText.text = `↑${maxTemp}°C`;
+    } else {
+        minTempText.text = '';
+        maxTempText.text = '';
+    }
 }
 
 export default setTempDisplay;
