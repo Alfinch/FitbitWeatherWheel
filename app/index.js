@@ -22,13 +22,13 @@ var showChartValues;
 
 clock.granularity = 'minutes';
 clock.ontick = (evt) => {
-  
+
   console.log(`Clock tick`);
 
   let today = evt.date;
   let hours = today.getHours();
   let minutes = today.getMinutes();
-  
+
   setTimeDisplay(hours, minutes);
   setDayHand(hours, minutes);
 
@@ -45,35 +45,39 @@ clock.ontick = (evt) => {
   }
 }
 
-let now = new Date();
-let lastHour = new Date().setMinutes(0, 0, 0);
-let msUntilNextHour = (60 * 60 * 1000) - (now - lastHour);
-
-setTimeout(() => {
-
-  console.log(`Initial timeout has expired - app should now be synchronised with the hour`);
-
-  requestWeatherData();
-  setInterval(requestWeatherData, 60 * 60 * 1000);
-}, msUntilNextHour);
-
 requestWeatherData();
 requestSettings();
+setWeatherTimeout();
 
 asap.onmessage = message => {
-  
+
   console.log(`Received message: ${message.type}`);
-  
+
   if (message.type === 'settings') {
 
     applySettings(message.settings);
   }
-  
+
   else if (message.type === 'weather') {
 
     weatherCache = message.weather;
     setWeatherData(weatherCache);
   }
+}
+
+function setWeatherTimeout() {
+
+  let now = new Date();
+  let lastHour = new Date().setMinutes(0, 0, 0);
+  let msUntilNextHour = (60 * 60 * 1000) - (now - lastHour);
+
+  setTimeout(() => {
+
+    console.log(`Initial timeout has expired - app should now be synchronised with the hour`);
+
+    requestWeatherData();
+    setInterval(requestWeatherData, 60 * 60 * 1000);
+  }, msUntilNextHour);
 }
 
 function requestSettings() {
@@ -89,7 +93,7 @@ function applySettings(settings) {
   secondaryAType = settings.secondaryA.selected[0];
   secondaryBType = settings.secondaryB.selected[0];
   showChartValues = settings.showChartValues;
-  
+
   setTheme(settings.colorScheme.selected[0]);
   setWorkArc(settings.showWorkingHours, settings.workingDays, settings.workingStartTime, settings.workingEndTime);
 }
@@ -101,7 +105,7 @@ function requestWeatherData() {
 }
 
 function setWeatherData(weather) {
-  
+
   console.log(`Applying weather data`);
 
   let startTime = util.unixTimeToDate(weather.startTime);
@@ -118,28 +122,28 @@ function setWeatherData(weather) {
   let maxTemp = Math.ceil(Math.max.apply(Math, temps));
 
   setNightArc(weather.sunset, weather.sunrise);
-  
-  let pop = weather.hourlyRainPop.slice(skipHours, Math.max(24, weather.hourlyRainPop.length) - 1);
+
+  //let pop = weather.hourlyRainPop.slice(skipHours, Math.max(24, weather.hourlyRainPop.length) - 1);
   let vol = weather.hourlyRainVol.slice(skipHours, Math.max(24, weather.hourlyRainVol.length) - 1);
   let minVol = Math.floor(Math.min.apply(Math, vol));
   let maxVol = Math.ceil(Math.max.apply(Math, vol));
   let totalVol = vol.reduce((total, v) => total + v);
   let volRange = maxVol - minVol;
-  let rain = vol.map((v, i) => ((v - minVol) / volRange) * pop[i]);
-  
+  let rain = vol.map((v, i) => volRange ? ((v - minVol) / volRange) : 0); //* pop[i]);
+
   setRainVolumeDisplay(showChartValues, totalVol);
   setRainBars(startTime, rain);
-  
+
   setTempDisplay(showChartValues, minTemp, maxTemp);
 
   setSecondaryDisplay(secondaryAType, weather, setSecondaryDisplayA);
   setSecondaryDisplay(secondaryBType, weather, setSecondaryDisplayB);
-  
+
   setTempGraph(currentTime, temps, minTemp, maxTemp, 8);
 }
 
 function setSecondaryDisplay(type, weather, set) {
-  switch(type) {
+  switch (type) {
     case 0: // Hide
       set('');
       break;
