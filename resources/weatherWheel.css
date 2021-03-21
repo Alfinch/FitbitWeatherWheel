@@ -47,6 +47,10 @@
   arc-width: 30;
 }
 
+#nightArcMonochromeFill {
+  visibility: hidden;
+}
+
 #workArcA {
   x: 3;
   y: 3;
@@ -61,6 +65,10 @@
   width: 270;
   height: 270;
   arc-width: 30;
+}
+
+#workArcMonochromeFill {
+  visibility: hidden;
 }
 
 #secondaryDisplayA {
@@ -158,10 +166,8 @@
 #root.punchy #background { gradient-color1: #440088; }
 #root.punchy #mainRingA { fill: #440088; }
 #root.punchy #mainRingB { fill: #440088; }
-#root.punchy #nightArcA { fill: #220044; }
-#root.punchy #nightArcB { fill: #220044; }
-#root.punchy #workArcA { fill: #6600cc; }
-#root.punchy #workArcB { fill: #6600cc; }
+#root.punchy #nightArcColorFill { fill: #220044; }
+#root.punchy #workArcColorFill { fill: #6600cc; }
 #root.punchy #maxTemp { fill: #ff7700; }
 #root.punchy #minTemp { fill: #ff7700; }
 #root.punchy #graphLineTransform > line { fill: #ff7700; }
@@ -169,20 +175,18 @@
 #root.punchy #rainBarsB > arc { fill: #00ccff; }
 #root.punchy #rainVolume { fill: #00ccff; }
 
-/* Theme "Greyscale" */
-#root.greyscale #background { gradient-color1: #666666; }
-#root.greyscale #mainRingA { fill: #444444; }
-#root.greyscale #mainRingB { fill: #444444; }
-#root.greyscale #nightArcA { fill: #222222; }
-#root.greyscale #nightArcB { fill: #222222; }
-#root.greyscale #workArcA { fill: #666666; }
-#root.greyscale #workArcB { fill: #666666; }
-#root.greyscale #maxTemp { fill: white; }
-#root.greyscale #minTemp { fill: white; }
-#root.greyscale #graphLineTransform > line { fill: white; }
-#root.greyscale #rainBarsA > arc { fill: #aaaaaa; }
-#root.greyscale #rainBarsB > arc { fill: #aaaaaa; }
-#root.greyscale #rainVolume { fill: white; }
+/* Theme "grayscale" */
+#root.grayscale #background { gradient-color1: #666666; }
+#root.grayscale #mainRingA { fill: #444444; }
+#root.grayscale #mainRingB { fill: #444444; }
+#root.grayscale #nightArcColorFill { fill: #222222; }
+#root.grayscale #workArcColorFill { fill: #666666; }
+#root.grayscale #maxTemp { fill: white; }
+#root.grayscale #minTemp { fill: white; }
+#root.grayscale #graphLineTransform > line { fill: white; }
+#root.grayscale #rainBarsA > arc { fill: #aaaaaa; }
+#root.grayscale #rainBarsB > arc { fill: #aaaaaa; }
+#root.grayscale #rainVolume { fill: white; }
 
 /* Theme "Primary" */
 #root.primary #background { gradient-color1: black; }
@@ -197,29 +201,27 @@
   width: 214;
   height: 214; }
 #root.primary #nightArcA {
-  fill: #007700;
   x: 5;
   y: 5;
   width: 326;
   height: 326;
   arc-width: 28; }
 #root.primary #nightArcB {
-  fill: #007700;
   width: 270;
   height: 270;
   arc-width: 28; }
+#root.primary #nightArcColorFill { fill: #007700; }
 #root.primary #workArcA {
-  fill: #007700;
   x: 5;
   y: 5;
   width: 326;
   height: 326;
   arc-width: 28; }
 #root.primary #workArcB {
-  fill: #007700;
   width: 270;
   height: 270;
   arc-width: 28; }
+#root.primary #workArcColorFill { fill: #007700; }
 #root.primary #maxTemp { fill: red; }
 #root.primary #minTemp { fill: red; }
 #root.primary #graphLineTransform > line { fill: red; }
@@ -228,5 +230,54 @@
 #root.primary #rainVolume { fill: blue; }
 #root.primary #graphHourMarkers > g > line {
   fill: #00ff00;
+  opacity: 1;
+}
+
+/* Theme "Monochrome" */
+#root.monochrome #background { gradient-color1: black; }
+#root.monochrome #mainRingA {
+  fill: white;
+  arc-width: 2; }
+#root.monochrome #mainRingB {
+  fill: white;
+  arc-width: 2;
+  x: 61;
+  y: 61;
+  width: 214;
+  height: 214; }
+#root.monochrome #nightArcA {
+  x: 5;
+  y: 5;
+  width: 326;
+  height: 326;
+  arc-width: 28; }
+#root.monochrome #nightArcB {
+  width: 270;
+  height: 270;
+  arc-width: 28; }
+#root.monochrome #nightArcColorFill { visibility: hidden; }
+#root.monochrome #nightArcMonochromeFill { visibility: visible; }
+#root.monochrome #workArcA {
+  fill: #444444;
+  x: 5;
+  y: 5;
+  width: 326;
+  height: 326;
+  arc-width: 28; }
+#root.monochrome #workArcB {
+  fill: #444444;
+  width: 270;
+  height: 270;
+  arc-width: 28; }
+#root.monochrome #workArcColorFill { visibility: hidden; }
+#root.monochrome #workArcMonochromeFill { visibility: visible; }
+#root.monochrome #maxTemp { fill: white; }
+#root.monochrome #minTemp { fill: white; }
+#root.monochrome #graphLineTransform > line { fill: white; }
+#root.monochrome #rainBarsA > arc { fill: white; }
+#root.monochrome #rainBarsB > arc { fill: white; }
+#root.monochrome #rainVolume { fill: white; }
+#root.monochrome #graphHourMarkers > g > line {
+  fill: white;
   opacity: 1;
 }

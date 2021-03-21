@@ -62,8 +62,9 @@ function settings(props) {
           settingsKey="colorScheme"
           options={[
             { name: "Punchy", value: 0 },
-            { name: "Monochrome", value: 1 },
-            { name: "Primary", value: 2 }
+            { name: "Grayscale", value: 1 },
+            { name: "Primary", value: 2 },
+            { name: "Monochrome", value: 3 },
           ]}
         />
     

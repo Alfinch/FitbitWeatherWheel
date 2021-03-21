@@ -4,20 +4,24 @@ const root = document.getElementById('root');
 
 function setTheme(theme) {
 
-    switch(theme) {
+  switch (theme) {
 
-      case 1:
-        root.class = 'greyscale';
-        break;
+    case 1:
+      root.class = 'grayscale';
+      break;
 
-      case 2:
-        root.class = 'primary';
-        break;
+    case 2:
+      root.class = 'primary';
+      break;
 
-      default:
-        root.class = 'punchy';
-        break;
-    }
+    case 3:
+      root.class = 'monochrome';
+      break;
+
+    default:
+      root.class = 'punchy';
+      break;
   }
+}
 
 export default setTheme;
