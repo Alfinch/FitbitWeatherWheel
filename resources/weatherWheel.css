@@ -229,7 +229,6 @@
   width: 326;
   height: 326;
   arc-width: 28; }
-#root.primary #nightArcB { visibility: hidden; }
 #root.primary #nightArcC {
   width: 270;
   height: 270;
@@ -241,7 +240,6 @@
   width: 326;
   height: 326;
   arc-width: 28; }
-#root.primary #workArcB { visibility: hidden; }
 #root.primary #workArcC {
   width: 270;
   height: 270;
@@ -275,7 +273,6 @@
   width: 326;
   height: 326;
   arc-width: 28; }
-#root.monochrome #nightArcB { visibility: hidden; }
 #root.monochrome #nightArcC {
   width: 270;
   height: 270;
@@ -289,7 +286,6 @@
   width: 326;
   height: 326;
   arc-width: 28; }
-#root.monochrome #workArcB { visibility: hidden; }
 #root.monochrome #workArcC {
   fill: #444444;
   width: 270;
