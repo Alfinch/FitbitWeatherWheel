@@ -10,7 +10,7 @@ function hoursToTime(hours) {
   return `${leftPad(h)}:${leftPad(m)}`;
 }
 
-function HelloWorld(props) {
+function settings(props) {
   
   let workingHoursSection = (
     <Section>
@@ -104,7 +104,8 @@ function HelloWorld(props) {
           settingsKey="showWorkingHours"
           label="Show working hours"
         />
-    
+        <Text italic>If enabled, the background of the graph will be a different color (depending on the theme) during working hours.</Text>
+
         {props.settings.showWorkingHours === "true" && workingHoursSection}
 
       </Section>
@@ -113,4 +114,4 @@ function HelloWorld(props) {
   );
 }
 
-registerSettingsPage(HelloWorld);
+registerSettingsPage(settings);

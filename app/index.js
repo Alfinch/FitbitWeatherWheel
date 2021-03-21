@@ -31,18 +31,7 @@ clock.ontick = (evt) => {
 
   setTimeDisplay(hours, minutes);
   setDayHand(hours, minutes);
-
-  if (secondaryAType === 3) {
-    setSecondaryDisplayA(dateFormat(today, 'mmm dS'));
-  }
-
-  if (secondaryBType === 3) {
-    setSecondaryDisplayB(dateFormat(today, 'mmm dS'));
-  }
-
-  if (weatherCache) {
-    setTimeout(() => setWeatherData(weatherCache), 100);
-  }
+  setCompliacations();
 }
 
 requestWeatherData();
@@ -61,7 +50,7 @@ asap.onmessage = message => {
   else if (message.type === 'weather') {
 
     weatherCache = message.weather;
-    setWeatherData(weatherCache);
+    setCompliacations();
   }
 }
 
@@ -96,6 +85,24 @@ function applySettings(settings) {
 
   setTheme(settings.colorScheme.selected[0]);
   setWorkArc(settings.showWorkingHours, settings.workingDays, settings.workingStartTime, settings.workingEndTime);
+  setCompliacations();
+}
+
+function setCompliacations() {
+  
+  let now = new Date();
+
+  if (secondaryAType === 3) {
+    setSecondaryDisplayA(dateFormat(now, 'mmm dS'));
+  }
+
+  if (secondaryBType === 3) {
+    setSecondaryDisplayB(dateFormat(now, 'mmm dS'));
+  }
+
+  if (weatherCache) {
+    setTimeout(() => setWeatherData(weatherCache), 100);
+  }
 }
 
 function requestWeatherData() {
@@ -148,7 +155,7 @@ function setSecondaryDisplay(type, weather, set) {
       set('');
       break;
     case 1: // Temperature
-      `${weather.temp.toFixed(1)}°C`
+      set(`${weather.temp.toFixed(1)}°C`);
       break;
     case 2: // Weather
       set(weather.weather);
