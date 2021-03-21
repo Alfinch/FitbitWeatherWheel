@@ -3,6 +3,7 @@ import * as util from '../utils';
 
 const workArcA = document.getElementById('workArcA');
 const workArcB = document.getElementById('workArcB');
+const workArcC = document.getElementById('workArcC');
 
 function setWorkArc(show, workingDays, startHour, endHour) {
   
@@ -24,6 +25,8 @@ function setWorkArc(show, workingDays, startHour, endHour) {
   workArcA.sweepAngle = sweepAngle;
   workArcB.startAngle = startAngle;
   workArcB.sweepAngle = sweepAngle;
+  workArcC.startAngle = startAngle;
+  workArcC.sweepAngle = sweepAngle;
 }
 
 export default setWorkArc;

@@ -2,27 +2,36 @@
   
   <gradientRect id="background" />
 
-  <arc id="mainRingA" />
-  <arc id="mainRingB" />
+  <mask id="mainRingMask">
+    <arc id="mainRingA" />
+    <arc id="mainRingB" />
+    <arc id="mainRingC" />
+  </mask>
+
+  <svg mask="#mainRingMask" width="100%" height="100%">
+    <rect id="mainRingColorFill" x="0" y="0" width="336" height="336" />
+  </svg>
 
   <mask id="nightArcMask">
     <arc id="nightArcA" />
     <arc id="nightArcB" />
+    <arc id="nightArcC" />
   </mask>
 
   <svg mask="#nightArcMask" width="100%" height="100%">
     <rect id="nightArcColorFill" x="0" y="0" width="336" height="336" />
-    <image id="nightArcMonochromeFill" x="0" y="0" width="336" height="336" href="monochromeGray.png" />
+    <image id="nightArcMonochromeFill" x="0" y="0" width="336" height="336" href="monochromeGray1.png" />
   </svg>
   
   <mask id="workArcMask">
     <arc id="workArcA" />
     <arc id="workArcB" />
+    <arc id="workArcC" />
   </mask>
 
   <svg mask="#workArcMask" width="100%" height="100%">
     <rect id="workArcColorFill" x="0" y="0" width="336" height="336" />
-    <image id="workArcMonochromeFill" x="0" y="0" width="336" height="336" href="monochromeGray.png" />
+    <image id="workArcMonochromeFill" x="0" y="0" width="336" height="336" href="monochromeGray2.png" />
   </svg>
   
   <g id="maxTempTransform">
