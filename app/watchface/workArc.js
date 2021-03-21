@@ -14,6 +14,8 @@ function setWorkArc(show, workingDays, startHour, endHour) {
     workArcA.sweepAngle = 0;
     workArcB.startAngle = 0;
     workArcB.sweepAngle = 0;
+    workArcC.startAngle = 0;
+    workArcC.sweepAngle = 0;
     return;
   }
 
