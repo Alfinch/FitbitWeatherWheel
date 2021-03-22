@@ -69,6 +69,16 @@ function settings(props) {
         />
     
         <Select
+          label={`Hour markers`}
+          settingsKey="hourMarkers"
+          options={[
+            { name: "None", value: 0 },
+            { name: "Short", value: 1 },
+            { name: "Long", value: 2 }
+          ]}
+        />
+
+        <Select
           label={`Secondary display (top)`}
           settingsKey="secondaryA"
           options={[

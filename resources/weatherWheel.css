@@ -168,13 +168,25 @@
 
 #graphHourMarkers > g > line {
   x1: 0;
-  y1: 155;
+  y1: 165;
   x2: 0;
   y2: 165;
   fill: white;
   opacity: .5;
   stroke-width: 1;
   stroke-linecap: butt;
+}
+
+#graphHourMarkers.none > g > line {
+  visibility: hidden;
+}
+
+#graphHourMarkers.short > g > line {
+  y2: 155;
+}
+
+#graphHourMarkers.long > g > line {
+  y2: 105;
 }
 
 #dayHand {

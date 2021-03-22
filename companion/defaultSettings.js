@@ -13,6 +13,12 @@ function defaultSettings() {
       { name: 'Punchy', value: 0 }
     ]
   });
+  setDefaultSetting('hourMarkers', {
+    selected: [1],
+    values: [
+      { name: 'Short', value: 1 }
+    ]
+  });
   setDefaultSetting('secondaryA', {
     selected: [3],
     values: [

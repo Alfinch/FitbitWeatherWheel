@@ -3,6 +3,7 @@ import asap from 'fitbit-asap/app';
 import dateFormat from 'dateformat';
 import * as util from './utils';
 import setTheme from './theme';
+import setHourMarkers from './hourMarkers';
 
 import setTimeDisplay from './watchface/timeDisplay';
 import setDayHand from './watchface/dayHand';
@@ -84,6 +85,7 @@ function applySettings(settings) {
   showChartValues = settings.showChartValues;
 
   setTheme(settings.colorScheme.selected[0]);
+  setHourMarkers(settings.hourMarkers.selected[0]);
   setWorkArc(settings.showWorkingHours, settings.workingDays, settings.workingStartTime, settings.workingEndTime);
   setCompliacations();
 }
