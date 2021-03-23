@@ -18,6 +18,10 @@ function setTheme(theme) {
       root.class = 'monochrome';
       break;
 
+    case 4:
+      root.class = 'coral';
+      break;
+
     default:
       root.class = 'punchy';
       break;

@@ -65,6 +65,7 @@ function settings(props) {
             { name: "Grayscale", value: 1 },
             { name: "Primary", value: 2 },
             { name: "Monochrome", value: 3 },
+            { name: "Coral", value: 4 },
           ]}
         />
     
@@ -74,7 +75,8 @@ function settings(props) {
           options={[
             { name: "None", value: 0 },
             { name: "Short", value: 1 },
-            { name: "Long", value: 2 }
+            { name: "Long", value: 2 },
+            { name: "Dots", value: 3 }
           ]}
         />
 

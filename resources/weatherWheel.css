@@ -172,7 +172,6 @@
   x2: 0;
   y2: 165;
   fill: white;
-  opacity: .5;
   stroke-width: 1;
   stroke-linecap: butt;
 }
@@ -189,6 +188,13 @@
   y2: 105;
 }
 
+#graphHourMarkers.dots > g > line {
+  stroke-linecap: round;
+  stroke-width: 4;
+  y1: 135;
+  y2: 134;
+}
+
 #dayHand {
   fill: white;
   stroke-width: 4;
@@ -200,7 +206,7 @@
   stroke-linecap: butt;
 }
 
-/* Theme "Punchy" */
+/* Theme "coral" */
 #root.punchy #background { gradient-color1: #440088; }
 #root.punchy #mainRingColorFill { fill: #440088; }
 #root.punchy #nightArcColorFill { fill: #220044; }
@@ -260,9 +266,9 @@
 #root.primary #maxTemp { fill: red; }
 #root.primary #minTemp { fill: red; }
 #root.primary #graphLineTransform > line { fill: red; }
-#root.primary #rainBarsA > arc { fill: blue; }
-#root.primary #rainBarsB > arc { fill: blue; }
-#root.primary #rainVolume { fill: blue; }
+#root.primary #rainBarsA > arc { fill: #3333ff; }
+#root.primary #rainBarsB > arc { fill: #3333ff; }
+#root.primary #rainVolume { fill: #3333ff; }
 #root.primary #graphHourMarkers > g > line {
   fill: #00ff00;
   opacity: 1;
@@ -315,3 +321,15 @@
   fill: white;
   opacity: 1;
 }
+
+/* Theme "Coral" */
+#root.coral #background { gradient-color1: #cc00cc; }
+#root.coral #mainRingColorFill { fill: #cc00cc; }
+#root.coral #nightArcColorFill { fill: #aa00aa; }
+#root.coral #workArcColorFill { fill: #ff00ff; }
+#root.coral #maxTemp { fill: #ffee00; }
+#root.coral #minTemp { fill: #ffee00; }
+#root.coral #graphLineTransform > line { fill: #ffee00; }
+#root.coral #rainBarsA > arc { fill: #00ffcc; }
+#root.coral #rainBarsB > arc { fill: #00ffcc; }
+#root.coral #rainVolume { fill: #00ffcc; }

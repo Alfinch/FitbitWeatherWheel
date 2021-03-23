@@ -14,6 +14,10 @@ function setHourMarkers(markerType) {
       hourMarkers.class = 'long';
       break;
 
+    case 3:
+      hourMarkers.class = 'dots';
+      break;
+
     default:
       hourMarkers.class = 'none';
       break;
