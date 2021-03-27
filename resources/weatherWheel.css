@@ -166,6 +166,19 @@
   y: 188;
 }
 
+#rainChanceTransform {
+  transform: rotate(-45);
+}
+
+#rainChance {
+  text-length: 12;
+  font-size: 25;
+  font-family: System-Bold;
+  text-anchor: middle;
+  x: 0;
+  y: 426;
+}
+
 #graphHourMarkers > g > line {
   x1: 0;
   y1: 165;
@@ -217,9 +230,10 @@
 #root.punchy #rainBarsA > arc { fill: #00ccff; }
 #root.punchy #rainBarsB > arc { fill: #00ccff; }
 #root.punchy #rainVolume { fill: #00ccff; }
+#root.punchy #rainChance { fill: #00ccff; }
 
 /* Theme "grayscale" */
-#root.grayscale #background { gradient-color1: #666666; }
+#root.grayscale #background { gradient-color1: #444444; }
 #root.grayscale #mainRingColorFill { fill: #444444; }
 #root.grayscale #nightArcColorFill { fill: #222222; }
 #root.grayscale #workArcColorFill { fill: #666666; }

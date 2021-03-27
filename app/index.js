@@ -1,6 +1,5 @@
 import clock from 'clock';
 import asap from 'fitbit-asap/app';
-import dateFormat from 'dateformat';
 import * as util from './utils';
 import setTheme from './theme';
 import setHourMarkers from './hourMarkers';
@@ -12,8 +11,7 @@ import setRainBars from './watchface/rainBars';
 import setTempGraph from './watchface/tempGraph';
 import setTempDisplay from './watchface/tempDisplay';
 import setWorkArc from './watchface/workArc';
-import setSecondaryDisplayA from './watchface/secondaryDisplayA';
-import setSecondaryDisplayB from './watchface/secondaryDisplayB';
+import setSecondaryDisplay from './watchface/secondaryDisplay';
 import setRainVolumeDisplay from './watchface/rainVolumeDisplay';
 
 var weatherCache;
@@ -32,42 +30,34 @@ clock.ontick = (evt) => {
 
   setTimeDisplay(hours, minutes);
   setDayHand(hours, minutes);
-  setCompliacations();
+  setWeatherDataAsync();
 }
 
 requestWeatherData();
 requestSettings();
-setWeatherTimeout();
+
+// Request weather data every 30 minutes
+setInterval(requestWeatherData, 60 * 30 * 1000);
 
 asap.onmessage = message => {
 
   console.log(`Received message: ${message.type}`);
 
-  if (message.type === 'settings') {
+  switch (message.type) {
 
-    applySettings(message.settings);
+    case 'settings':
+      applySettings(message.settings);
+      setWeatherDataAsync();
+      break;
+
+    case 'weather':
+      weatherCache = message.weather;
+      setWeatherDataAsync();
+      break;
+
+    default:
+      console.error(`Unrecognised message type`);
   }
-
-  else if (message.type === 'weather') {
-
-    weatherCache = message.weather;
-    setCompliacations();
-  }
-}
-
-function setWeatherTimeout() {
-
-  let now = new Date();
-  let lastHour = new Date().setMinutes(0, 0, 0);
-  let msUntilNextHour = (60 * 60 * 1000) - (now - lastHour);
-
-  setTimeout(() => {
-
-    console.log(`Initial timeout has expired - app should now be synchronised with the hour`);
-
-    requestWeatherData();
-    setInterval(requestWeatherData, 60 * 60 * 1000);
-  }, msUntilNextHour);
 }
 
 function requestSettings() {
@@ -87,24 +77,6 @@ function applySettings(settings) {
   setTheme(settings.colorScheme.selected[0]);
   setHourMarkers(settings.hourMarkers.selected[0]);
   setWorkArc(settings.showWorkingHours, settings.workingDays, settings.workingStartTime, settings.workingEndTime);
-  setCompliacations();
-}
-
-function setCompliacations() {
-  
-  let now = new Date();
-
-  if (secondaryAType === 3) {
-    setSecondaryDisplayA(dateFormat(now, 'mmm dS'));
-  }
-
-  if (secondaryBType === 3) {
-    setSecondaryDisplayB(dateFormat(now, 'mmm dS'));
-  }
-
-  if (weatherCache) {
-    setTimeout(() => setWeatherData(weatherCache), 100);
-  }
 }
 
 function requestWeatherData() {
@@ -113,54 +85,54 @@ function requestWeatherData() {
   asap.send({ command: 'weather' });
 }
 
-function setWeatherData(weather) {
+function setWeatherDataAsync() {
+
+  if (weatherCache) {
+
+    // Allow time to render the watchface before crunching numbers
+    // This ensures the watch wakes quickly, then shows the correct data after a short while
+    setTimeout(() => setWeatherData(), 100);
+  }
+}
+
+function setWeatherData() {
 
   console.log(`Applying weather data`);
+  const weather = getCurrentWeatherData();
 
-  let startTime = util.unixTimeToDate(weather.startTime);
+  setNightArc(weather.sunset, weather.sunrise);
+
+  setRainVolumeDisplay(showChartValues, weather.currentPVol, weather.currentPOP);
+  setRainBars(weather.hourlyPVol);
+
+  setTempDisplay(showChartValues, weather.hourlyTemp);
+
+  setSecondaryDisplay(0, secondaryAType, weather);
+  setSecondaryDisplay(1, secondaryBType, weather);
+
+  setTempGraph(weather.hourlyTemp);
+}
+
+function getCurrentWeatherData() {
+
+  let startTime = util.unixTimeToDate(weatherCache.startTime);
   let currentTime = new Date();
   currentTime.setMinutes(0, 0, 0);
 
   // Whole hours between start time and current time
   let skipHours = (currentTime - startTime) / 3600000;
 
-  console.log(`Skipping ${skipHours} hour(s) of weather data`);
+  if (skipHours > 0) {
+    console.log(`Weather is ${skipHours} hour(s) out of date`);
+  }
 
-  let temps = weather.hourlyTemp.slice(skipHours, Math.max(25, weather.hourlyTemp.length) - 1);
-  let minTemp = Math.floor(Math.min.apply(Math, temps));
-  let maxTemp = Math.ceil(Math.max.apply(Math, temps));
-
-  setNightArc(weather.sunset, weather.sunrise);
-
-  //let pop = weather.hourlyRainPop.slice(skipHours, Math.max(24, weather.hourlyRainPop.length) - 1);
-  let vol = weather.hourlyRainVol.slice(skipHours, Math.max(24, weather.hourlyRainVol.length) - 1);
-  let minVol = Math.floor(Math.min.apply(Math, vol));
-  let maxVol = Math.ceil(Math.max.apply(Math, vol));
-  let totalVol = vol.reduce((total, v) => total + v);
-  let volRange = maxVol - minVol;
-  let rain = vol.map((v, i) => volRange ? ((v - minVol) / volRange) : 0); //* pop[i]);
-
-  setRainVolumeDisplay(showChartValues, totalVol);
-  setRainBars(startTime, rain);
-
-  setTempDisplay(showChartValues, minTemp, maxTemp);
-
-  setSecondaryDisplay(secondaryAType, weather, setSecondaryDisplayA);
-  setSecondaryDisplay(secondaryBType, weather, setSecondaryDisplayB);
-
-  setTempGraph(currentTime, temps, minTemp, maxTemp, 8);
-}
-
-function setSecondaryDisplay(type, weather, set) {
-  switch (type) {
-    case 0: // Hide
-      set('');
-      break;
-    case 1: // Temperature
-      set(`${weather.temp.toFixed(1)}°C`);
-      break;
-    case 2: // Weather
-      set(weather.weather);
-      break;
+  return {
+    sunrise: weatherCache.sunrise,
+    sunset: weatherCache.sunset,
+    currentWeather: weatherCache.hourlyWeather[skipHours],
+    currentPOP: weatherCache.hourlyPOP[skipHours],
+    currentPVol: weatherCache.hourlyPVol[skipHours],
+    hourlyPVol: weatherCache.hourlyPVol.slice(skipHours),
+    hourlyTemp: weatherCache.hourlyTemp.slice(skipHours),
   }
 }

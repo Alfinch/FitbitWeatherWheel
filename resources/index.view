@@ -43,6 +43,9 @@
   <g id="rainVolumeTransform">
     <text id="rainVolume" />
   </g>
+  <g id="rainChanceTransform">
+    <text id="rainChance" />
+  </g>
   
   <text id="secondaryDisplayA" />
   <text id="time" />

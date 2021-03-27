@@ -52,18 +52,19 @@ function onLocationData(position) {
 function onWeatherData(data) {
         
   console.log(`Received weather data`);
+
+  const takeHours = 36;
   
   let hourly = data.hourly;
   
   let weather = {
-    weather: data.current.weather[0].main,
+    startTime: hourly[0].dt,
     sunrise: data.current.sunrise,
     sunset: data.current.sunset,
-    temp: data.current.temp,
-    startTime: hourly[0].dt,
-    //hourlyRainPop: hourly.map(h => h.pop),
-    hourlyRainVol: hourly.map(h => h.rain ? h.rain["1h"] : 0),
-    hourlyTemp: hourly.map(h => h.temp)
+    hourlyWeather: hourly.map(h => h.weather[0].id).slice(0, takeHours),
+    hourlyPOP: hourly.map(h => h.pop).slice(0, takeHours),
+    hourlyPVol: hourly.map(h => (h.rain ? h.rain["1h"] : 0) + (h.snow ? h.snow["1h"] : 0)).slice(0, takeHours),
+    hourlyTemp: hourly.map(h => h.temp).slice(0, takeHours)
   };
 
   console.log(`Sending weather data to app (length: ${JSON.stringify(weather).length})`);
