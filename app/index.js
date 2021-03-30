@@ -14,6 +14,7 @@ import setWorkArc from './watchface/workArc';
 import setSecondaryDisplay from './watchface/secondaryDisplay';
 import setRainVolumeDisplay from './watchface/rainVolumeDisplay';
 
+var weatherMessageSections = {};
 var weatherCache;
 var secondaryAType;
 var secondaryBType;
@@ -51,12 +52,34 @@ asap.onmessage = message => {
       break;
 
     case 'weather':
-      weatherCache = message.weather;
-      setWeatherDataAsync();
+      processWeatherSection(message);
       break;
 
     default:
       console.error(`Unrecognised message type`);
+  }
+}
+
+function processWeatherSection(message) {
+
+  let sections = weatherMessageSections[message.t] || [];
+  
+  console.log(`Processing weather data section ${sections.length + 1} of ${message.total}`);
+
+  sections.push(message.section);
+
+  if (sections.length === message.total) {
+    
+    console.log(`All sections received`);
+
+    let weather = JSON.parse(sections.reduce((json, section) => json + section));
+
+    delete weatherMessageSections[message.t];
+    weatherCache = weather;
+    setWeatherDataAsync();
+
+  } else {
+    weatherMessageSections[message.t] = sections;
   }
 }
 
