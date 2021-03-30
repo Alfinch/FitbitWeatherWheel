@@ -10,19 +10,22 @@ function setSecondaryDisplay(index, type, weather) {
 
     switch (type) {
 
-        case 0: // Hide
-            elements[index].text = '';
+        case 0: // Hidden
+            elements[index].style.visibility = 'hidden';
             break;
 
         case 1: // Temperature
+            elements[index].style.visibility = 'visible';
             elements[index].text = `${weather.hourlyTemp[0].toFixed(1)}°C`;
             break;
 
         case 2: // Weather
+            elements[index].style.visibility = 'visible';
             elements[index].text = getWeatherDescription(weather.currentWeather);
             break;
 
         case 3: // Date
+            elements[index].style.visibility = 'visible';
             elements[index].text = dateFormat(new Date(), 'mmm dS');
             break;
     }

@@ -51,7 +51,7 @@ function setTempGraph(hourlyTemps) {
     .map(p => p.toCartesian());
 
   for (let i = 0, j = skipSegments, k = skipSegments + 1;
-    i < graphSegments.length && k < cartesianCoordinates.length;
+    i < graphSegments.length;
     ++i, ++j, ++k) {
 
     let s = graphSegments[i];
@@ -59,10 +59,16 @@ function setTempGraph(hourlyTemps) {
     let v1 = cartesianCoordinates[j];
     let v2 = cartesianCoordinates[k];
 
-    s.x1 = v1.x;
-    s.y1 = v1.y;
-    s.x2 = v2.x;
-    s.y2 = v2.y;
+    if (v2 == null) {
+      s.style.visibility = 'hidden';
+
+    } else {
+      s.style.visibility = 'visibility';
+      s.x1 = v1.x;
+      s.y1 = v1.y;
+      s.x2 = v2.x;
+      s.y2 = v2.y;
+    }
   }
 }
 

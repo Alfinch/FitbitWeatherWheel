@@ -12,11 +12,11 @@ function setTempDisplay(show, temps) {
         let minTemp = Math.floor(Math.min.apply(Math, next24));
         let maxTemp = Math.ceil(Math.max.apply(Math, next24));
 
+        minTempText.style.visibility = maxTempText.style.visibility = 'visible';
         minTempText.text = `↓${minTemp}°C`;
         maxTempText.text = `↑${maxTemp}°C`;
     } else {
-        minTempText.text = '';
-        maxTempText.text = '';
+        minTempText.style.visibility = maxTempText.style.visibility = 'hidden';
     }
 }
 

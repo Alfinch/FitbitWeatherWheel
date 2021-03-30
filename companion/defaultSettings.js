@@ -31,6 +31,7 @@ function defaultSettings() {
       { name: 'Weather', value: 2 }
     ]
   });
+  setDefaultSetting('showChartValues', true);
 
   setDefaultSetting('showWorkingHours', false);
   setDefaultSetting('workingDays', {
