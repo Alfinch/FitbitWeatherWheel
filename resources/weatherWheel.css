@@ -219,7 +219,7 @@
   stroke-linecap: butt;
 }
 
-/* Theme "coral" */
+/* Theme "punchy" */
 #root.punchy #background { gradient-color1: #440088; }
 #root.punchy #mainRingColorFill { fill: #440088; }
 #root.punchy #nightArcColorFill { fill: #220044; }
@@ -243,6 +243,7 @@
 #root.grayscale #rainBarsA > arc { fill: #aaaaaa; }
 #root.grayscale #rainBarsB > arc { fill: #aaaaaa; }
 #root.grayscale #rainVolume { fill: white; }
+#root.grayscale #rainChance { fill: white; }
 
 /* Theme "Primary" */
 #root.primary #background { gradient-color1: black; }
@@ -283,6 +284,7 @@
 #root.primary #rainBarsA > arc { fill: #3333ff; }
 #root.primary #rainBarsB > arc { fill: #3333ff; }
 #root.primary #rainVolume { fill: #3333ff; }
+#root.primary #rainChance { fill: #3333ff; }
 #root.primary #graphHourMarkers > g > line {
   fill: #00ff00;
   opacity: 1;
@@ -331,6 +333,7 @@
 #root.monochrome #rainBarsA > arc { fill: white; }
 #root.monochrome #rainBarsB > arc { fill: white; }
 #root.monochrome #rainVolume { fill: white; }
+#root.monochrome #rainChance { fill: white; }
 #root.monochrome #graphHourMarkers > g > line {
   fill: white;
   opacity: 1;
@@ -347,3 +350,4 @@
 #root.coral #rainBarsA > arc { fill: #00ffcc; }
 #root.coral #rainBarsB > arc { fill: #00ffcc; }
 #root.coral #rainVolume { fill: #00ffcc; }
+#root.coral #rainChance { fill: #00ffcc; }
