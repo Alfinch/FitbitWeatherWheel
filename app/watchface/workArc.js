@@ -10,7 +10,9 @@ function setWorkArc(show, workingDays, startHour, endHour) {
   let currentDay = (new Date().getDay() + 6) % 7;
 
   if (!show || workingDays.indexOf(currentDay) === -1) {
-    workArcA.style.visibility = 'hidden';
+    workArcA.style.visibility =
+    workArcB.style.visibility =
+    workArcC.style.visibility = 'hidden';
     return;
   }
 
@@ -18,12 +20,14 @@ function setWorkArc(show, workingDays, startHour, endHour) {
   let endAngle = util.hoursAndMinutesToFaceAngle(endHour, 0) + 180;
   let sweepAngle = endAngle - startAngle;
   
-  workArcA.style.visibility = 'visible';
-  workArcA.startAngle = startAngle;
-  workArcA.sweepAngle = sweepAngle;
-  workArcB.startAngle = startAngle;
-  workArcB.sweepAngle = sweepAngle;
+  workArcA.style.visibility =
+  workArcB.style.visibility =
+  workArcC.style.visibility = 'visible';
+  workArcA.startAngle =
+  workArcB.startAngle =
   workArcC.startAngle = startAngle;
+  workArcA.sweepAngle =
+  workArcB.sweepAngle =
   workArcC.sweepAngle = sweepAngle;
 }
 
