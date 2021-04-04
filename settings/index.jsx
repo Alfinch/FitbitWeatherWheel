@@ -10,6 +10,20 @@ function hoursToTime(hours) {
   return `${leftPad(h)}:${leftPad(m)}`;
 }
 
+function getTemperatureValuesDescriptor(temperatureValues) {
+
+  let selected = JSON.parse(temperatureValues).selected[0];
+
+  switch (selected) {
+    case 0:
+      return `Maximum temperature for the next 24 hours is shown in the top left corner.
+              Minimum temperature for the next 24 hours is shown in the top right corner.`;
+    case 1:
+      return `Median temperature for the next 24 hours is shown in the top left corner.
+              Temperature range for the next 24 hours (expressed as ±°C relative to the median) is shown in the top right corner.`;
+  }
+}
+
 function settings(props) {
   
   let workingHoursSection = (
@@ -47,6 +61,31 @@ function settings(props) {
         step="0.5"
       />
       <Text>{hoursToTime(props.settings.workingEndTime)}</Text>
+      
+    </Section>
+  );
+  
+  let chartValuesSection = (
+    <Section>
+
+      <Select
+        label={`Temperature values`}
+        settingsKey="temperatureValues"
+        options={[
+          { name: "Max and min", value: 0 },
+          { name: "Median and range", value: 1 }
+        ]}
+      />
+      <Text italic>{getTemperatureValuesDescriptor(props.settings.temperatureValues)}</Text>
+
+      {/* <Select
+        label={`Precipitation values`}
+        settingsKey="precipitationValues"
+        options={[
+          { name: "Total volume and probability", value: 0 },
+          { name: "Median and range", value: 1 }
+        ]}
+      /> */}
       
     </Section>
   );
@@ -102,11 +141,18 @@ function settings(props) {
           ]}
         />
 
+      </Section>
+    
+      <Section
+        title={<Text bold align="center">Chart values</Text>}>
+
         <Toggle
           settingsKey="showChartValues"
-          label="Show key chart values"
+          label="Show chart values"
         />
-        <Text italic>If enabled, minimum and maximum temperature and total rain volume for the next 24 hours will be shown in the corners.</Text>
+        <Text italic>If enabled, additional temperature and rain values will be shown in the corners of the display.</Text>
+
+        {props.settings.showChartValues === "true" && chartValuesSection}
 
       </Section>
     

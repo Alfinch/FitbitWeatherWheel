@@ -32,6 +32,12 @@ function defaultSettings() {
     ]
   });
   setDefaultSetting('showChartValues', true);
+  setDefaultSetting('temperatureValues', {
+    selected: [0],
+    values: [
+      { name: "Max and min", value: 0 }
+    ]
+  });
 
   setDefaultSetting('showWorkingHours', false);
   setDefaultSetting('workingDays', {

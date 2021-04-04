@@ -17,8 +17,8 @@ function setTempGraph(hourlyTemps) {
 
   let next24 = hourlyTemps.slice(0, 24);
 
-  const minTemp = Math.floor(Math.min.apply(Math, next24));
-  const maxTemp = Math.ceil(Math.max.apply(Math, next24));
+  const minTemp = Math.min.apply(Math, next24);
+  const maxTemp = Math.max.apply(Math, next24);
 
   // Current progress through hour in segments
   const skipSegments = Math.round(new Date().getMinutes() / 60 * SEGMENTS_PER_HOUR);

@@ -19,6 +19,7 @@ var weatherCache;
 var secondaryAType;
 var secondaryBType;
 var showChartValues;
+var tempValuesMode;
 
 clock.granularity = 'minutes';
 clock.ontick = (evt) => {
@@ -96,6 +97,7 @@ function applySettings(settings) {
   secondaryAType = settings.secondaryA.selected[0];
   secondaryBType = settings.secondaryB.selected[0];
   showChartValues = settings.showChartValues;
+  tempValuesMode = settings.temperatureValues.selected[0];
 
   setTheme(settings.colorScheme.selected[0]);
   setHourMarkers(settings.hourMarkers.selected[0]);
@@ -128,7 +130,7 @@ function setWeatherData() {
   setRainVolumeDisplay(showChartValues, weather.currentPVol, weather.currentPOP);
   setRainBars(weather.hourlyPVol);
 
-  setTempDisplay(showChartValues, weather.hourlyTemp);
+  setTempDisplay(showChartValues, tempValuesMode, weather.hourlyTemp);
 
   setSecondaryDisplay(0, secondaryAType, weather);
   setSecondaryDisplay(1, secondaryBType, weather);
