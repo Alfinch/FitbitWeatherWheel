@@ -23,7 +23,7 @@ function setTempDisplay(show, mode, temps) {
             let medianTemp = minTemp + (maxTemp - minTemp) / 2;
             let tempRange = Math.abs(maxTemp - medianTemp);
 
-            maxTempText.text = `~${Math.round(medianTemp)}°C`;
+            maxTempText.text = `${Math.round(medianTemp)}°C`;
             minTempText.text = `±${Math.round(tempRange)}°C`;
         }
     } else {
