@@ -69,28 +69,12 @@
   visibility: hidden;
 }
 
-#workArcA {
-  x: 3;
-  y: 3;
-  width: 330;
-  height: 330;
-  arc-width: 30;
-}
-
-#workArcB {
-  x: 18;
-  y: 18;
-  width: 300;
-  height: 300;
-  arc-width: 30;
-}
-
-#workArcC {
-  x: 33;
-  y: 33;
-  width: 270;
-  height: 270;
-  arc-width: 30;
+#workArc {
+  x: 23;
+  y: 23;
+  width: 290;
+  height: 290;
+  arc-width: 20;
 }
 
 #workArcMonochromeFill {
@@ -267,17 +251,7 @@
   height: 270;
   arc-width: 28; }
 #root.primary #nightArcColorFill { fill: #007700; }
-#root.primary #workArcA {
-  x: 5;
-  y: 5;
-  width: 326;
-  height: 326;
-  arc-width: 28; }
-#root.primary #workArcC {
-  width: 270;
-  height: 270;
-  arc-width: 28; }
-#root.primary #workArcColorFill { fill: #007700; }
+#root.primary #workArcColorFill { fill: #00BB00; }
 #root.primary #maxTemp { fill: red; }
 #root.primary #minTemp { fill: red; }
 #root.primary #graphLineTransform > line { fill: red; }
@@ -313,18 +287,6 @@
   arc-width: 28; }
 #root.monochrome #nightArcColorFill { visibility: hidden; }
 #root.monochrome #nightArcMonochromeFill { visibility: visible; }
-#root.monochrome #workArcA {
-  fill: #444444;
-  x: 5;
-  y: 5;
-  width: 326;
-  height: 326;
-  arc-width: 28; }
-#root.monochrome #workArcC {
-  fill: #444444;
-  width: 270;
-  height: 270;
-  arc-width: 28; }
 #root.monochrome #workArcColorFill { visibility: hidden; }
 #root.monochrome #workArcMonochromeFill { visibility: visible; }
 #root.monochrome #maxTemp { fill: white; }

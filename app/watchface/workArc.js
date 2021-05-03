@@ -1,9 +1,7 @@
 import document from 'document';
 import * as util from '../utils';
 
-const workArcA = document.getElementById('workArcA');
-const workArcB = document.getElementById('workArcB');
-const workArcC = document.getElementById('workArcC');
+const workArc = document.getElementById('workArc');
 
 function setWorkArc(show, workingDays, startHour, endHour) {
 
@@ -23,9 +21,7 @@ function setWorkArc(show, workingDays, startHour, endHour) {
     || (!workingToday && !workingTomorrow)
     || (workingToday && !workingTomorrow && now > endTime)
     || (!workingToday && workingTomorrow && now < startTime)) {
-    workArcA.style.visibility =
-      workArcB.style.visibility =
-      workArcC.style.visibility = 'hidden';
+    workArc.style.visibility = 'hidden';
     return;
   }
 
@@ -45,15 +41,9 @@ function setWorkArc(show, workingDays, startHour, endHour) {
 
   let sweepAngle = (endAngle - startAngle + 360) % 360;
 
-  workArcA.style.visibility =
-    workArcB.style.visibility =
-    workArcC.style.visibility = 'visible';
-  workArcA.startAngle =
-    workArcB.startAngle =
-    workArcC.startAngle = startAngle;
-  workArcA.sweepAngle =
-    workArcB.sweepAngle =
-    workArcC.sweepAngle = sweepAngle;
+  workArc.style.visibility = 'visible';
+  workArc.startAngle = startAngle;
+  workArc.sweepAngle = sweepAngle;
 }
 
 export default setWorkArc;
