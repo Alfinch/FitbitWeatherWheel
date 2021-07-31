@@ -15,16 +15,16 @@ function setTempGraph(hourlyTemps) {
   const startAngle = util.dateToFaceAngle(currentTime);
   const startAngleRadians = util.faceAngleDegreesToFaceAngleRadians(startAngle);
 
-  let next24 = hourlyTemps.slice(0, 24);
+  // 26 Data points - 25 for a full circle, plus one for overlap into the next hour
+  let dataPoints = hourlyTemps.slice(0, 26);
 
-  const minTemp = Math.min.apply(Math, next24);
-  const maxTemp = Math.max.apply(Math, next24);
+  const minTemp = Math.min.apply(Math, dataPoints);
+  const maxTemp = Math.max.apply(Math, dataPoints);
 
   // Current progress through hour in segments
   const skipSegments = Math.round(new Date().getMinutes() / 60 * SEGMENTS_PER_HOUR);
 
-  // 26 Data points - 25 for a full circle, plus one for overlap into the next hour
-  const NUM_DATA_POINTS = Math.min(26, hourlyTemps.length);
+  const NUM_DATA_POINTS = dataPoints.length;
   const TOTAL_LINE_POINTS = ((NUM_DATA_POINTS - 1) * SEGMENTS_PER_HOUR) + 1;
   const SEGMENTS_PER_DAY = 24 * SEGMENTS_PER_HOUR;
 
@@ -34,7 +34,7 @@ function setTempGraph(hourlyTemps) {
   }
 
   const tempRange = maxTemp - minTemp;
-  const yValues = hourlyTemps.map(t => (t - minTemp) / tempRange);
+  const yValues = dataPoints.map(t => (t - minTemp) / tempRange);
 
   const xValues = util.buildArray(NUM_DATA_POINTS, i => i / 2);
 

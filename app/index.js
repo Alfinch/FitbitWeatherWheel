@@ -145,7 +145,7 @@ function getCurrentWeatherData() {
   currentTime.setMinutes(0, 0, 0);
 
   // Whole hours between start time and current time
-  let skipHours = (currentTime - startTime) / 3600000;
+  let skipHours = Math.floor((currentTime - startTime) / 3600000);
 
   if (skipHours > 0) {
     console.log(`Weather is ${skipHours} hour(s) out of date`);

@@ -86,6 +86,8 @@ function getWeatherDescription(weatherId) {
 
     } else if (weatherId === 804) {
         return 'Overcast';
+    } else {
+        return `Error: ${weatherId}`;
     }
 }
 

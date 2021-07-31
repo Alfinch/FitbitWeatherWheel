@@ -29,6 +29,6 @@
   "dependencies": {
     "dateformat": "^4.5.1",
     "debounce": "^1.2.1",
-    "fitbit-asap": "^1.2.3"
+    "fitbit-asap": "^1.2.7"
   }
 }
