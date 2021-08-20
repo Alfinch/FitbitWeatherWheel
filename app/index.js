@@ -1,5 +1,6 @@
 import clock from 'clock';
 import asap from 'fitbit-asap/app';
+import { memory } from "system";
 import * as util from './utils';
 import setTheme from './theme';
 import setHourMarkers from './hourMarkers';
@@ -14,7 +15,8 @@ import setWorkArc from './watchface/workArc';
 import setSecondaryDisplay from './watchface/secondaryDisplay';
 import setRainVolumeDisplay from './watchface/rainVolumeDisplay';
 
-var weatherMessageSections = {};
+var weatherMessageSections = [];
+var weatherMessageTimestamp = null;
 var weatherCache;
 var secondaryAType;
 var secondaryBType;
@@ -25,6 +27,8 @@ clock.granularity = 'minutes';
 clock.ontick = (evt) => {
 
   console.log(`Clock tick`);
+  console.log(`JS memory: ${memory.js.used} of ${memory.js.total} (Peak: ${memory.js.peak})`);
+  console.log(`Memory pressure: ${memory.monitor.pressure}`);
 
   let today = evt.date;
   let hours = today.getHours();
@@ -39,7 +43,7 @@ requestWeatherData();
 requestSettings();
 
 // Request weather data every 30 minutes
-setInterval(requestWeatherData, 60 * 30 * 1000);
+setInterval(requestWeatherData, 30 * 60 * 1000);
 
 asap.onmessage = message => {
 
@@ -63,7 +67,14 @@ asap.onmessage = message => {
 
 function processWeatherSection(message) {
 
-  let sections = weatherMessageSections[message.t] || [];
+  if (weatherMessageTimestamp === null) {
+    weatherMessageTimestamp = message.t;
+
+  } else if (weatherMessageTimestamp !== message.t) {
+    return;
+  }
+
+  let sections = weatherMessageSections;
   
   console.log(`Processing weather data section ${sections.length + 1} of ${message.total}`);
 
@@ -75,12 +86,10 @@ function processWeatherSection(message) {
 
     let weather = JSON.parse(sections.reduce((json, section) => json + section));
 
-    delete weatherMessageSections[message.t];
+    weatherMessageSections = [];
     weatherCache = weather;
     setWeatherDataAsync();
 
-  } else {
-    weatherMessageSections[message.t] = sections;
   }
 }
 
@@ -107,6 +116,10 @@ function applySettings(settings) {
 function requestWeatherData() {
 
   console.log(`Requesting weather data`);
+
+  weatherMessageTimestamp = null;
+  weatherMessageSections = [];
+
   asap.send({ command: 'weather' });
 }
 
