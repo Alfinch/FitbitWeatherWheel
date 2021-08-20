@@ -39,8 +39,14 @@ function getWeatherDescription(weatherId) {
     } else if (300 <= weatherId && weatherId < 400) {
         return 'Drizzle';
 
-    } else if (400 <= weatherId && weatherId < 500) {
+    } else if (weatherId === 500) {
+        return 'Light Rain';
+
+    } else if (500 <= weatherId && weatherId < 520) {
         return 'Rain';
+
+    } else if (520 <= weatherId && weatherId < 600) {
+        return 'Showers';
 
     } else if (611 <= weatherId && weatherId <= 613) {
         return 'Sleet';
