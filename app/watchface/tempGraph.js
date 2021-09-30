@@ -42,7 +42,7 @@ function setTempGraph(hourlyTemps) {
 
   let polarCoordinates = util.buildArray(TOTAL_LINE_POINTS, i =>
     new Polar(
-      (spline.at(i / (SEGMENTS_PER_HOUR * 2)) * 60) + 105,
+      (spline.at(i / (SEGMENTS_PER_HOUR * 2)) * 50) + 110,
       (i / SEGMENTS_PER_DAY) * TAU + startAngleRadians
     )
   );
