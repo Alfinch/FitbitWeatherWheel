@@ -250,15 +250,15 @@
   width: 270;
   height: 270;
   arc-width: 28; }
-#root.primary #nightArcColorFill { fill: #007700; }
-#root.primary #workArcColorFill { fill: #00BB00; }
+#root.primary #nightArcColorFill { fill: #004400; }
+#root.primary #workArcColorFill { fill: #008800; }
 #root.primary #maxTemp { fill: red; }
 #root.primary #minTemp { fill: red; }
 #root.primary #graphLineTransform > line { fill: red; }
-#root.primary #rainBarsA > arc { fill: #3333ff; }
-#root.primary #rainBarsB > arc { fill: #3333ff; }
-#root.primary #rainVolume { fill: #3333ff; }
-#root.primary #rainChance { fill: #3333ff; }
+#root.primary #rainBarsA > arc { fill: #0044ff; }
+#root.primary #rainBarsB > arc { fill: #0044ff; }
+#root.primary #rainVolume { fill: #0044ff; }
+#root.primary #rainChance { fill: #0044ff; }
 #root.primary #graphHourMarkers > g > line {
   fill: #00ff00;
   opacity: 1;
