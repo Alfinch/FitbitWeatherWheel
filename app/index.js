@@ -18,6 +18,7 @@ import setRainVolumeDisplay from './watchface/rainVolumeDisplay';
 var weatherMessageSections = [];
 var weatherMessageTimestamp = null;
 var weatherCache;
+var settingsCache;
 var secondaryAType;
 var secondaryBType;
 var showChartValues;
@@ -37,6 +38,11 @@ clock.ontick = (evt) => {
   setTimeDisplay(hours, minutes);
   setDayHand(hours, minutes);
   setWeatherDataAsync();
+
+  if (settingsCache) {
+    let settings = settingsCache;
+    setWorkArc(settings.showWorkingHours, settings.workingDays, settings.workingStartTime, settings.workingEndTime);
+  }
 }
 
 requestWeatherData();
@@ -102,6 +108,8 @@ function requestSettings() {
 function applySettings(settings) {
 
   console.log(`Applying settings`);
+  
+  settingsCache = settings;
 
   secondaryAType = settings.secondaryA.selected[0];
   secondaryBType = settings.secondaryB.selected[0];
