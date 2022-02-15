@@ -127,4 +127,15 @@
     <line id="dayHand" x1="0" y1="105" x2="0" y2="165" />
   </g>
   
+  <g id="debugView">
+    <rect />
+    <text id="currentMemory" />
+    <text id="totalMemory" />
+    <text id="peakMemory" />
+    <text id="memoryPressure" />
+    <text id="weatherOutOfDate" />
+  </g>
+
+  <rect id="clickMask" pointer-events="visible" />
+
 </svg>

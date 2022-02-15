@@ -203,6 +203,56 @@
   stroke-linecap: butt;
 }
 
+#debugView {
+  display: none;
+}
+
+#debugView > rect {
+  x: 0;
+  y: 0;
+  width: 336;
+  height: 336;
+  fill: black;
+  opacity: 0.8;
+}
+
+#debugView > text {
+  text-length: 50;
+  font-size: 25;
+  font-family: System-Bold;
+  text-anchor: left;
+  x: 50;
+  fill: white;
+}
+
+#currentMemory {
+  y: 65;
+}
+
+#totalMemory {
+  y: 100;
+}
+
+#peakMemory {
+  y: 135;
+}
+
+#memoryPressure {
+  y: 170;
+}
+
+#weatherOutOfDate {
+  y: 240;
+}
+
+#clickMask {
+  x: 0;
+  y: 0;
+  width: 336;
+  height: 336;
+  opacity: 0;
+}
+
 /* Theme "punchy" */
 #root.punchy #background { gradient-color1: #440088; }
 #root.punchy #mainRingColorFill { fill: #440088; }

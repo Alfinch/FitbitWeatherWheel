@@ -14,6 +14,7 @@ import setTempDisplay from './watchface/tempDisplay';
 import setWorkArc from './watchface/workArc';
 import setSecondaryDisplay from './watchface/secondaryDisplay';
 import setRainVolumeDisplay from './watchface/rainVolumeDisplay';
+import * as debug from './watchface/debug';
 
 var weatherMessageSections = [];
 var weatherMessageTimestamp = null;
@@ -24,12 +25,14 @@ var secondaryBType;
 var showChartValues;
 var tempValuesMode;
 
+debug.setDebugToggle();
+
 clock.granularity = 'minutes';
 clock.ontick = (evt) => {
 
   console.log(`Clock tick`);
-  console.log(`JS memory: ${memory.js.used} of ${memory.js.total} (Peak: ${memory.js.peak})`);
-  console.log(`Memory pressure: ${memory.monitor.pressure}`);
+
+  debug.setDebugMemory(memory.js.used, memory.js.total, memory.js.peak, memory.monitor.pressure);
 
   let today = evt.date;
   let hours = today.getHours();
@@ -167,6 +170,8 @@ function getCurrentWeatherData() {
 
   // Whole hours between start time and current time
   let skipHours = Math.floor((currentTime - startTime) / 3600000);
+  
+  debug.setDebugWeather(skipHours);
 
   if (skipHours > 0) {
     console.log(`Weather is ${skipHours} hour(s) out of date`);
