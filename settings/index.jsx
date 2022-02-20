@@ -168,6 +168,17 @@ function settings(props) {
         {props.settings.showWorkingHours === "true" && workingHoursSection}
 
       </Section>
+    
+    <Section
+      title={<Text bold align="center">Debug</Text>}>
+  
+      <Toggle
+        settingsKey="debugToggle"
+        label="Enable debug data"
+      />
+      <Text italic>If enabled, tapping the watch face will toggle debug information.</Text>
+
+    </Section>
 
     </Page>
   );

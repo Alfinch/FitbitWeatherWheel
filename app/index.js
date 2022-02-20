@@ -25,8 +25,6 @@ var secondaryBType;
 var showChartValues;
 var tempValuesMode;
 
-debug.setDebugToggle();
-
 clock.granularity = 'minutes';
 clock.ontick = (evt) => {
 
@@ -118,6 +116,12 @@ function applySettings(settings) {
   secondaryBType = settings.secondaryB.selected[0];
   showChartValues = settings.showChartValues;
   tempValuesMode = settings.temperatureValues.selected[0];
+
+  if (settings.debugToggle) {
+    debug.setDebugToggle();
+  } else {
+    debug.unsetDebugToggle();
+  }
 
   setTheme(settings.colorScheme.selected[0]);
   setHourMarkers(settings.hourMarkers.selected[0]);

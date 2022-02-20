@@ -26,18 +26,27 @@ function setDebugWeather(hoursOutOfDate) {
 function setDebugToggle() {
 
     console.log(`Set up debug toggle`);
-    clickMask.addEventListener('click', () => toggleDebugView());
+
+    clickMask.addEventListener('click', toggleDebugView);
+}
+
+function unsetDebugToggle() {
+
+    console.log(`Remove debug toggle`);
+
+    debugView.style.display = 'none';
+    clickMask.removeEventListener('click', toggleDebugView);
 }
 
 function toggleDebugView() {
 
     console.log(`Toggle debug view`);
 
-    if(debugView.style.display == 'none') {
+    if (debugView.style.display == 'none') {
         debugView.style.display = 'inline';
     } else {
         debugView.style.display = 'none';
     }
 }
 
-export { setDebugToggle, setDebugMemory, setDebugWeather };
+export { setDebugToggle, unsetDebugToggle, setDebugMemory, setDebugWeather };
