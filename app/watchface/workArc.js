@@ -1,12 +1,16 @@
 import document from 'document';
 import * as util from '../utils';
 
-const workArc = document.getElementById('workArc');
+const workArcA = document.getElementById('workArcA');
+const workArcB = document.getElementById('workArcB');
+const workArcC = document.getElementById('workArcC');
 
 function setWorkArc(show, workingDays, startHour, endHour) {
 
   if (!show) {
-    workArc.style.visibility = 'hidden';
+    workArcA.style.visibility =
+      workArcB.style.visibility =
+      workArcC.style.visibility = 'hidden';
     return;
   }
 
@@ -17,7 +21,9 @@ function setWorkArc(show, workingDays, startHour, endHour) {
   let workingTomorrow = workingDays.indexOf((currentDay + 1) % 7) > -1;
 
   if (!workingToday && !workingTomorrow) {
-    workArc.style.visibility = 'hidden';
+    workArcA.style.visibility =
+      workArcB.style.visibility =
+      workArcC.style.visibility = 'hidden';
     return;
   }
 
@@ -28,7 +34,9 @@ function setWorkArc(show, workingDays, startHour, endHour) {
   endTime.setHours(endHour, (endHour % 1) * 60, 0, 0);
 
   if (startTime === endTime) {
-    workArc.style.visibility = 'hidden';
+    workArcA.style.visibility =
+      workArcB.style.visibility =
+      workArcC.style.visibility = 'hidden';
     return;
   }
 
@@ -68,9 +76,15 @@ function setWorkArc(show, workingDays, startHour, endHour) {
 
   let sweepAngle = (endAngle - startAngle + 360) % 360;
 
-  workArc.style.visibility = 'visible';
-  workArc.startAngle = startAngle;
-  workArc.sweepAngle = sweepAngle;
+  workArcA.style.visibility =
+    workArcB.style.visibility =
+    workArcC.style.visibility = 'visible';
+  workArcA.startAngle =
+    workArcB.startAngle =
+    workArcC.startAngle = startAngle;
+  workArcA.sweepAngle =
+    workArcB.sweepAngle =
+    workArcC.sweepAngle = sweepAngle;
 }
 
 export default setWorkArc;

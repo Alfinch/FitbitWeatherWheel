@@ -1,16 +1,3 @@
-#background {
-  x: 0;
-  y: 0;
-  width: 336;
-  height: 336;
-  gradient-type: radial;
-  gradient-x1: 168;
-  gradient-y1: 168;
-  gradient-x2: 336;
-  gradient-y2: 336;
-  gradient-color2: black;
-}
-
 #mainRingA {
   x: 3;
   y: 3;
@@ -69,12 +56,45 @@
   visibility: hidden;
 }
 
-#workArc {
-  x: 23;
-  y: 23;
-  width: 290;
-  height: 290;
-  arc-width: 20;
+#workArcA {
+  x: 3;
+  y: 3;
+  width: 330;
+  height: 330;
+  arc-width: 30;
+  visibility: hidden;
+}
+
+#workArcB {
+  x: 18;
+  y: 18;
+  width: 300;
+  height: 300;
+  arc-width: 30;
+  visibility: hidden;
+}
+
+#workArcC {
+  x: 33;
+  y: 33;
+  width: 270;
+  height: 270;
+  arc-width: 30;
+  visibility: hidden;
+}
+
+#workArcColorFill {
+  visibility: hidden;
+}
+
+#workArcHashFill {
+  visibility: hidden;
+}
+
+#workArcHashFill > rect {
+  x: 0;
+  width: 336;
+  height: 8;
 }
 
 #workArcMonochromeFill {
@@ -168,7 +188,6 @@
   y1: 165;
   x2: 0;
   y2: 165;
-  fill: white;
   stroke-width: 1;
   stroke-linecap: butt;
 }
@@ -179,15 +198,18 @@
 
 #graphHourMarkers.short > g > line {
   y2: 155;
+  fill: black;
 }
 
 #graphHourMarkers.long > g > line {
   y2: 105;
+  fill: black;
 }
 
 #graphHourMarkers.dots > g > line {
   stroke-linecap: round;
   stroke-width: 4;
+  fill: white;
   y1: 135;
   y2: 134;
 }
@@ -254,10 +276,9 @@
 }
 
 /* Theme "punchy" */
-#root.punchy #background { gradient-color1: #440088; }
 #root.punchy #mainRingColorFill { fill: #440088; }
 #root.punchy #nightArcColorFill { fill: #220044; }
-#root.punchy #workArcColorFill { fill: #6600cc; }
+#root.punchy #workArcColorFill { visibility: visible; fill: #6600cc; }
 #root.punchy #maxTemp { fill: #ff7700; }
 #root.punchy #minTemp { fill: #ff7700; }
 #root.punchy #graphLineTransform > line { fill: #ff7700; }
@@ -267,10 +288,9 @@
 #root.punchy #rainChance { fill: #00ccff; }
 
 /* Theme "grayscale" */
-#root.grayscale #background { gradient-color1: #444444; }
 #root.grayscale #mainRingColorFill { fill: #444444; }
 #root.grayscale #nightArcColorFill { fill: #222222; }
-#root.grayscale #workArcColorFill { fill: #666666; }
+#root.grayscale #workArcColorFill { visibility: visible; fill: #666666; }
 #root.grayscale #maxTemp { fill: white; }
 #root.grayscale #minTemp { fill: white; }
 #root.grayscale #graphLineTransform > line { fill: white; }
@@ -280,7 +300,6 @@
 #root.grayscale #rainChance { fill: white; }
 
 /* Theme "Primary" */
-#root.primary #background { gradient-color1: black; }
 #root.primary #mainRingA { arc-width: 2; }
 #root.primary #mainRingB { visibility: hidden; }
 #root.primary #mainRingC {
@@ -301,7 +320,17 @@
   height: 270;
   arc-width: 28; }
 #root.primary #nightArcColorFill { fill: #004400; }
-#root.primary #workArcColorFill { fill: #008800; }
+#root.primary #workArcA {
+  x: 5;
+  y: 5;
+  width: 326;
+  height: 326;
+  arc-width: 28; }
+#root.primary #workArcC {
+  width: 270;
+  height: 270;
+  arc-width: 28; }
+#root.primary #workArcColorFill { visibility: visible; fill: #008800; }
 #root.primary #maxTemp { fill: red; }
 #root.primary #minTemp { fill: red; }
 #root.primary #graphLineTransform > line { fill: red; }
@@ -315,7 +344,6 @@
 }
 
 /* Theme "Monochrome" */
-#root.monochrome #background { gradient-color1: black; }
 #root.monochrome #mainRingA { arc-width: 2; }
 #root.monochrome #mainRingB { visibility: hidden; }
 #root.monochrome #mainRingC {
@@ -337,7 +365,16 @@
   arc-width: 28; }
 #root.monochrome #nightArcColorFill { visibility: hidden; }
 #root.monochrome #nightArcMonochromeFill { visibility: visible; }
-#root.monochrome #workArcColorFill { visibility: hidden; }
+#root.monochrome #workArcA {
+  x: 5;
+  y: 5;
+  width: 326;
+  height: 326;
+  arc-width: 28; }
+#root.monochrome #workArcC {
+  width: 270;
+  height: 270;
+  arc-width: 28; }
 #root.monochrome #workArcMonochromeFill { visibility: visible; }
 #root.monochrome #maxTemp { fill: white; }
 #root.monochrome #minTemp { fill: white; }
@@ -352,10 +389,9 @@
 }
 
 /* Theme "Coral" */
-#root.coral #background { gradient-color1: #cc00cc; }
 #root.coral #mainRingColorFill { fill: #cc00cc; }
 #root.coral #nightArcColorFill { fill: #aa00aa; }
-#root.coral #workArcColorFill { fill: #ff00ff; }
+#root.coral #workArcColorFill { visibility: visible; fill: #ff00ff; }
 #root.coral #maxTemp { fill: #ffee00; }
 #root.coral #minTemp { fill: #ffee00; }
 #root.coral #graphLineTransform > line { fill: #ffee00; }
