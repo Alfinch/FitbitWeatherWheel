@@ -1,7 +1,7 @@
 import document from 'document';
 
-const maxTempText = document.getElementById('maxTemp');
 const minTempText = document.getElementById('minTemp');
+const maxTempText = document.getElementById('maxTemp');
 
 function setTempDisplay(show, mode, temps) {
 
@@ -15,16 +15,16 @@ function setTempDisplay(show, mode, temps) {
 
         if (mode === 0) {
 
-            maxTempText.text = `↑${Math.round(maxTemp)}°C`;
             minTempText.text = `↓${Math.round(minTemp)}°C`;
+            maxTempText.text = `↑${Math.round(maxTemp)}°C`;
 
         } else if (mode === 1) {
 
             let meanTemp = Math.floor(minTemp + (maxTemp - minTemp) / 2);
             let tempRange = maxTemp - meanTemp;
 
-            maxTempText.text = `${Math.round(meanTemp)}°C`;
-            minTempText.text = `±${Math.round(tempRange)}°C`;
+            minTempText.text = `${Math.round(meanTemp)}°C`;
+            maxTempText.text = `±${Math.round(tempRange)}°C`;
         }
     } else {
         minTempText.style.visibility = maxTempText.style.visibility = 'hidden';

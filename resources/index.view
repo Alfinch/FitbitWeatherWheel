@@ -32,11 +32,11 @@
     <image id="workArcMonochromeFill" x="0" y="0" width="336" height="336" href="monochromeGray2.png" />
   </svg>
   
-  <g id="maxTempTransform">
-    <text id="maxTemp" />
-  </g>
   <g id="minTempTransform">
     <text id="minTemp" />
+  </g>
+  <g id="maxTempTransform">
+    <text id="maxTemp" />
   </g>
   <g id="rainVolumeTransform">
     <text id="rainVolume" />

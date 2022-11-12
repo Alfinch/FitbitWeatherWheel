@@ -131,11 +131,11 @@
   y: 235;
 }
 
-#maxTempTransform {
+#minTempTransform {
   transform: rotate(-45);
 }
 
-#maxTemp {
+#minTemp {
   text-length: 12;
   font-size: 25;
   font-family: System-Bold;
@@ -144,11 +144,11 @@
   y: 66;
 }
 
-#minTempTransform {
+#maxTempTransform {
   transform: rotate(45);
 }
 
-#minTemp {
+#maxTemp {
   text-length: 12;
   font-size: 25;
   font-family: System-Bold;

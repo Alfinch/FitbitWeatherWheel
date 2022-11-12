@@ -16,8 +16,8 @@ function getTemperatureValuesDescriptor(temperatureValues) {
 
   switch (selected) {
     case 0:
-      return `Maximum temperature for the next 24 hours is shown in the top left corner.
-              Minimum temperature for the next 24 hours is shown in the top right corner.`;
+      return `Minimum temperature for the next 24 hours is shown in the top left corner.
+              Maximum temperature for the next 24 hours is shown in the top right corner.`;
     case 1:
       return `Mean temperature for the next 24 hours is shown in the top left corner.
               Temperature range for the next 24 hours (expressed as ±°C relative to the mean) is shown in the top right corner.`;
@@ -72,7 +72,7 @@ function settings(props) {
         label={`Temperature values`}
         settingsKey="temperatureValues"
         options={[
-          { name: "Max and min", value: 0 },
+          { name: "Min and max", value: 0 },
           { name: "Mean and range", value: 1 }
         ]}
       />
@@ -153,7 +153,7 @@ function settings(props) {
           settingsKey="showChartValues"
           label="Show chart values"
         />
-        <Text italic>If enabled, additional temperature and rain values will be shown in the corners of the display.</Text>
+        <Text italic>If enabled, additional temperature and precipitation values will be shown in the corners of the display.</Text>
 
         {props.settings.showChartValues === "true" && chartValuesSection}
 
