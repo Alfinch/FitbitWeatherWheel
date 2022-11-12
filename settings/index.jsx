@@ -19,8 +19,8 @@ function getTemperatureValuesDescriptor(temperatureValues) {
       return `Maximum temperature for the next 24 hours is shown in the top left corner.
               Minimum temperature for the next 24 hours is shown in the top right corner.`;
     case 1:
-      return `Median temperature for the next 24 hours is shown in the top left corner.
-              Temperature range for the next 24 hours (expressed as ±°C relative to the median) is shown in the top right corner.`;
+      return `Mean temperature for the next 24 hours is shown in the top left corner.
+              Temperature range for the next 24 hours (expressed as ±°C relative to the mean) is shown in the top right corner.`;
   }
 }
 
@@ -73,7 +73,7 @@ function settings(props) {
         settingsKey="temperatureValues"
         options={[
           { name: "Max and min", value: 0 },
-          { name: "Median and range", value: 1 }
+          { name: "Mean and range", value: 1 }
         ]}
       />
       <Text italic>{getTemperatureValuesDescriptor(props.settings.temperatureValues)}</Text>
@@ -82,10 +82,11 @@ function settings(props) {
         label={`Precipitation values`}
         settingsKey="precipitationValues"
         options={[
-          { name: "Total volume and probability", value: 0 },
-          { name: "Median and range", value: 1 }
+          { name: "Maximum hourly and total daily volume", value: 0 }
         ]}
-      /> */}
+      /> 
+
+      <Text italic>Maximum hourly volume for the next 24 hours is shown in the bottom left corner. Total volume for the next 24 hours is shown in the bottom right corner.</Text>*/}
       
     </Section>
   );
@@ -126,7 +127,8 @@ function settings(props) {
             { name: "Hide", value: 0 },
             { name: "Temperature", value: 1 },
             { name: "Weather", value: 2 },
-            { name: "Date", value: 3 }
+            { name: "Month and Date", value: 3 },
+            { name: "Day and Date", value: 4 }
           ]}
         />
     
@@ -137,7 +139,8 @@ function settings(props) {
             { name: "Hide", value: 0 },
             { name: "Temperature", value: 1 },
             { name: "Weather", value: 2 },
-            { name: "Date", value: 3 }
+            { name: "Month and Date", value: 3 },
+            { name: "Day and Date", value: 4 }
           ]}
         />
 

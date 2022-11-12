@@ -20,10 +20,10 @@ function setTempDisplay(show, mode, temps) {
 
         } else if (mode === 1) {
 
-            let medianTemp = minTemp + (maxTemp - minTemp) / 2;
-            let tempRange = Math.abs(maxTemp - medianTemp);
+            let meanTemp = Math.floor(minTemp + (maxTemp - minTemp) / 2);
+            let tempRange = maxTemp - meanTemp;
 
-            maxTempText.text = `${Math.round(medianTemp)}°C`;
+            maxTempText.text = `${Math.round(meanTemp)}°C`;
             minTempText.text = `±${Math.round(tempRange)}°C`;
         }
     } else {

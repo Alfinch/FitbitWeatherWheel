@@ -155,7 +155,7 @@ function setWeatherData() {
 
   setNightArc(weather.sunset, weather.sunrise);
 
-  setRainVolumeDisplay(showChartValues, weather.currentPVol, weather.currentPOP);
+  setRainVolumeDisplay(showChartValues, weather.hourlyPVol);
   setRainBars(weather.hourlyPVol, weather.hourlyPOP);
 
   setTempDisplay(showChartValues, tempValuesMode, weather.hourlyTemp);
@@ -185,8 +185,6 @@ function getCurrentWeatherData() {
     sunrise: weatherCache.sunrise,
     sunset: weatherCache.sunset,
     currentWeather: weatherCache.hourlyWeather[skipHours],
-    currentPVol: weatherCache.hourlyPVol[skipHours],
-    currentPOP: weatherCache.hourlyPOP[skipHours],
     hourlyPVol: weatherCache.hourlyPVol.slice(skipHours),
     hourlyPOP: weatherCache.hourlyPOP.slice(skipHours),
     hourlyTemp: weatherCache.hourlyTemp.slice(skipHours),

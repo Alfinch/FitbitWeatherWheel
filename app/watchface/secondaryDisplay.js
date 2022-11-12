@@ -24,9 +24,14 @@ function setSecondaryDisplay(index, type, weather) {
             elements[index].text = getWeatherDescription(weather.currentWeather);
             break;
 
-        case 3: // Date
+        case 3: // Month and Date
             elements[index].style.visibility = 'visible';
             elements[index].text = dateFormat(new Date(), 'mmm dS');
+            break;
+
+        case 4: // Day and Date
+            elements[index].style.visibility = 'visible';
+            elements[index].text = dateFormat(new Date(), 'ddd dS');
             break;
     }
 }
