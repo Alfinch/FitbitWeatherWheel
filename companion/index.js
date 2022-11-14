@@ -27,7 +27,7 @@ asap.onmessage = message => {
     
     geolocation.getCurrentPosition(
       onLocationData,
-      (err) => handleError('Location', err),
+      (err) => console.error(`Error fetching location: ${err}`),
       { timeout: 60 * 1000 });
   }
 

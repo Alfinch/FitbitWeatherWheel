@@ -22,7 +22,7 @@ function defaultSettings() {
   setDefaultSetting('secondaryA', {
     selected: [3],
     values: [
-      { name: 'Date', value: 3 }
+      { name: 'Day and Date', value: 4 }
     ]
   });
   setDefaultSetting('secondaryB', {
