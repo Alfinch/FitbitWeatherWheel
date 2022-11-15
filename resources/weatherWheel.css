@@ -137,7 +137,7 @@
 
 #minTemp {
   text-length: 12;
-  font-size: 25;
+  font-size: 22;
   font-family: System-Bold;
   text-anchor: middle;
   x: 0;
@@ -150,7 +150,7 @@
 
 #maxTemp {
   text-length: 12;
-  font-size: 25;
+  font-size: 22;
   font-family: System-Bold;
   text-anchor: middle;
   x: 236;
@@ -163,7 +163,7 @@
 
 #rainVolume {
   text-length: 12;
-  font-size: 25;
+  font-size: 22;
   font-family: System-Bold;
   text-anchor: middle;
   x: 236;
@@ -176,7 +176,7 @@
 
 #rainChance {
   text-length: 12;
-  font-size: 25;
+  font-size: 22;
   font-family: System-Bold;
   text-anchor: middle;
   x: 0;
