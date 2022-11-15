@@ -11,7 +11,7 @@ function setRainVolumeDisplay(show, volumes) {
         let maxVolume = Math.max.apply(Math, next24);
         let maxVolumeDisplay = maxVolume < 10 ? Math.round(maxVolume * 10) / 10 : Math.round(maxVolume);
 
-        let totalVolume = volumes.reduce((v1, v2) => v1 + v2);
+        let totalVolume = next24.reduce((v1, v2) => v1 + v2);
 
         rainVolumeText.style.visibility = rainChanceText.style.visibility = 'visible';
         rainVolumeText.text = `↑${maxVolumeDisplay}mm`;
