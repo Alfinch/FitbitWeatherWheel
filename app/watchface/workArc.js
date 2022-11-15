@@ -40,37 +40,17 @@ function setWorkArc(show, workingDays, startHour, endHour) {
     return;
   }
 
-  let startAngle, endAngle;
+  let startAngle = (util.hoursAndMinutesToFaceAngle(startHour, 0) + 180) % 360;
+  let endAngle = (util.hoursAndMinutesToFaceAngle(endHour, 0) + 180) % 360;
 
-  if (startTime < endTime) {
-
-    startAngle = (util.hoursAndMinutesToFaceAngle(startHour, 0) + 180) % 360;
-    endAngle = (util.hoursAndMinutesToFaceAngle(endHour, 0) + 180) % 360;
-
-    if (startTime < now && now < endTime) {
-      if (workingToday && !workingTomorrow) {
-        startAngle = util.dateToFaceAngle(now) + 180;
-        endAngle = util.hoursAndMinutesToFaceAngle(endHour, 0) + 180;
-      }
-      if (!workingToday && workingTomorrow) {
-        startAngle = util.hoursAndMinutesToFaceAngle(startHour, 0) + 180;
-        endAngle = util.dateToFaceAngle(now) + 180;
-      }
+  if (startTime < now && now < endTime) {
+    if (workingToday && !workingTomorrow) {
+      startAngle = util.dateToFaceAngle(now) + 180;
+      endAngle = util.hoursAndMinutesToFaceAngle(endHour, 0) + 180;
     }
-  } else {
-
-    startAngle = (util.hoursAndMinutesToFaceAngle(endHour, 0) + 180) % 360;
-    endAngle = (util.hoursAndMinutesToFaceAngle(startHour, 0) + 180) % 360;
-
-    if (startTime < now && now < endTime) {
-      if (workingToday && !workingTomorrow) {
-        startAngle = util.dateToFaceAngle(now) + 180;
-        endAngle = util.hoursAndMinutesToFaceAngle(endHour, 0) + 180;
-      }
-      if (!workingToday && workingTomorrow) {
-        startAngle = util.hoursAndMinutesToFaceAngle(startHour, 0) + 180;
-        endAngle = util.dateToFaceAngle(now) + 180;
-      }
+    if (!workingToday && workingTomorrow) {
+      startAngle = util.hoursAndMinutesToFaceAngle(startHour, 0) + 180;
+      endAngle = util.dateToFaceAngle(now) + 180;
     }
   }
 

@@ -16,7 +16,7 @@ function defaultSettings() {
   setDefaultSetting('hourMarkers', {
     selected: [1],
     values: [
-      { name: 'Short', value: 1 }
+      { name: 'Long', value: 2 }
     ]
   });
   setDefaultSetting('secondaryA', {

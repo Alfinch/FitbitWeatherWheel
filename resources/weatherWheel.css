@@ -197,8 +197,14 @@
 }
 
 #graphHourMarkers.short > g > line {
+  y2: 160;
+  fill: white;
+  stroke-width: 2;
+}
+
+#graphHourMarkers.short > g > line.six {
+  stroke-width: 4;
   y2: 155;
-  fill: black;
 }
 
 #graphHourMarkers.long > g > line {
@@ -210,8 +216,13 @@
   stroke-linecap: round;
   stroke-width: 4;
   fill: white;
+  opacity: 0.4;
   y1: 135;
   y2: 134;
+}
+
+#graphHourMarkers.dots > g > line.three {
+  opacity: 1;
 }
 
 #dayHand {

@@ -97,28 +97,28 @@
   </g>
 
   <g id="graphHourMarkers" transform="translate(168, 168)">
-    <g transform="rotate(0)"><line /></g>
+    <g transform="rotate(0)"><line class="three six" /></g>
     <g transform="rotate(15)"><line /></g>
     <g transform="rotate(30)"><line /></g>
-    <g transform="rotate(45)"><line /></g>
+    <g transform="rotate(45)"><line class="three" /></g>
     <g transform="rotate(60)"><line /></g>
     <g transform="rotate(75)"><line /></g>
-    <g transform="rotate(90)"><line /></g>
+    <g transform="rotate(90)"><line class="three six" /></g>
     <g transform="rotate(105)"><line /></g>
     <g transform="rotate(120)"><line /></g>
-    <g transform="rotate(135)"><line /></g>
+    <g transform="rotate(135)"><line class="three" /></g>
     <g transform="rotate(150)"><line /></g>
     <g transform="rotate(165)"><line /></g>
-    <g transform="rotate(180)"><line /></g>
+    <g transform="rotate(180)"><line class="three six" /></g>
     <g transform="rotate(195)"><line /></g>
     <g transform="rotate(210)"><line /></g>
-    <g transform="rotate(225)"><line /></g>
+    <g transform="rotate(225)"><line class="three" /></g>
     <g transform="rotate(240)"><line /></g>
     <g transform="rotate(255)"><line /></g>
-    <g transform="rotate(270)"><line /></g>
+    <g transform="rotate(270)"><line class="three six" /></g>
     <g transform="rotate(285)"><line /></g>
     <g transform="rotate(300)"><line /></g>
-    <g transform="rotate(315)"><line /></g>
+    <g transform="rotate(315)"><line class="three" /></g>
     <g transform="rotate(330)"><line /></g>
     <g transform="rotate(345)"><line /></g>
   </g>
